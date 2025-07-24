@@ -68,3 +68,5 @@ logs/
 # 临时文件
 temp/
 tmp/
+**/__MACOSX/
+houduan/houduan/src/main/resources/models/__MACOSX/
