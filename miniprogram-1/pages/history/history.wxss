@@ -1,0 +1,399 @@
+/**history.wxss**/
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #F8F8FF;
+  padding-bottom: env(safe-area-inset-bottom);
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+/* 顶部导航栏 */
+.nav-header {
+  height: 60px;
+  background-color: #FF5A5F;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding-top: 20px; /* 适配状态栏 */
+  border-bottom: none;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.page-title {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: none;
+}
+
+.content {
+  flex: 1;
+  padding: 30rpx;
+}
+
+/* 日期选择器 */
+.date-selector-card {
+  background-color: #FFFFFF;
+  border-radius: 16rpx;
+  padding: 0 30rpx;
+  height: 80rpx;
+  margin-bottom: 30rpx;
+  border: none;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.08);
+}
+
+.date-selector-content {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.date-icon-wrap {
+  margin-right: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.date-icon-wrap .pixel-icon {
+  width: 32rpx;
+  height: 32rpx;
+  color: #FF5A5F;
+}
+
+.date-text {
+  flex: 1;
+  font-size: 16px;
+  color: #333333;
+}
+
+.date-arrow {
+  width: 40rpx;
+  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.date-arrow .pixel-icon {
+  width: 28rpx;
+  height: 28rpx;
+  color: #FF5A5F;
+}
+
+/* 统计卡片 */
+.stats-card {
+  background-color: #FF5A5F;
+  opacity: 0.9;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  color: #FFFFFF;
+  border: none;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.08);
+}
+
+.stats-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.stats-title {
+  font-size: 16px;
+  font-weight: bold;
+  text-shadow: none;
+}
+
+.stats-calories {
+  display: flex;
+  align-items: baseline;
+}
+
+.calories-value {
+  font-size: 22px;
+  font-weight: bold;
+  margin-right: 10rpx;
+  text-shadow: none;
+}
+
+.calories-unit {
+  font-size: 16px;
+  text-shadow: none;
+}
+
+/* 进度条 */
+.progress-container {
+  height: 20px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 10rpx;
+  border: none;
+}
+
+.progress-bg {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+}
+
+.progress-text {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 20rpx;
+  text-shadow: none;
+}
+
+/* 营养素分布卡片 */
+.nutrition-card {
+  background-color: #FFFFFF;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  border: none;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.08);
+}
+
+.nutrition-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 30rpx;
+  text-shadow: none;
+}
+
+.nutrition-content {
+  display: flex;
+}
+
+.nutrition-chart {
+  width: 180rpx;
+  height: 180rpx;
+  position: relative;
+}
+
+.pie-chart {
+  width: 90px;
+  height: 90px;
+  border-radius: 45px;
+  background: conic-gradient(
+    #FFC107 0% 45%,
+    #FF5A5F 45% 70%,
+    #62D778 70% 90%,
+    #42A5F5 90% 100%
+  );
+  border: none;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+.nutrition-legend {
+  flex: 1;
+  padding-left: 40rpx;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15rpx;
+}
+
+.legend-color {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 20rpx;
+  border: none;
+  border-radius: 6rpx;
+}
+
+.carbs-color {
+  background-color: #FFC107;
+}
+
+.protein-color {
+  background-color: #FF5A5F;
+}
+
+.fat-color {
+  background-color: #62D778;
+}
+
+.other-color {
+  background-color: #42A5F5;
+}
+
+.legend-text {
+  font-size: 14px;
+  color: #333333;
+}
+
+/* 详细记录标题 */
+.records-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333333;
+  margin: 30rpx 0 20rpx;
+  padding-left: 20rpx;
+  text-shadow: none;
+  position: relative;
+}
+
+.records-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 6rpx;
+  height: 24rpx;
+  background-color: #FF5A5F;
+  transform: translateY(-50%);
+  border: none;
+  border-radius: 3rpx;
+}
+
+/* 记录列表 */
+.records-list {
+  margin-bottom: 120rpx;
+}
+
+.record-item {
+  background-color: #FFFFFF;
+  border-radius: 16rpx;
+  padding: 25rpx 30rpx;
+  margin-bottom: 20rpx;
+  border: none;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+}
+
+.record-icon {
+  margin-right: 20rpx;
+}
+
+.meal-icon-breakfast, .meal-icon-lunch {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+.meal-icon-breakfast {
+  background-color: rgba(76, 175, 80, 0.2);
+}
+
+.meal-icon-breakfast .pixel-icon {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.meal-icon-breakfast .pixel-icon {
+  color: #4CAF50;
+}
+
+.meal-icon-lunch {
+  background-color: rgba(255, 152, 0, 0.2);
+}
+
+.meal-icon-lunch .pixel-icon {
+  width: 36rpx;
+  height: 36rpx;
+  color: #FF9800;
+}
+
+.record-info {
+  flex: 1;
+}
+
+.record-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 5rpx;
+}
+
+.record-food {
+  font-size: 12px;
+  color: #7E7E8F;
+}
+
+/* 记录卡路里样式 */
+.record-calories {
+  display: flex;
+  align-items: baseline;
+  margin-right: 20rpx;
+  justify-content: flex-end;
+}
+
+.record-calories .calories-value {
+  font-size: 18px;
+  font-weight: bold;
+  color: #FF5A5F;
+  margin-right: 4rpx;
+}
+
+.record-calories .calories-unit {
+  font-size: 12px;
+  color: #FF5A5F;
+}
+
+.record-delete {
+  margin-left: 10rpx;
+}
+
+.delete-icon-wrap {
+  width: 40rpx;
+  height: 40rpx;
+  background-color: rgba(255, 90, 95, 0.1);
+  border-radius: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+.delete-icon-wrap .pixel-icon {
+  width: 28rpx;
+  height: 28rpx;
+  color: #FF5A5F;
+}
+
+/* 添加按钮 */
+.add-record-btn {
+  position: fixed;
+  right: 40rpx;
+  bottom: calc(120rpx + env(safe-area-inset-bottom));
+  width: 100rpx;
+  height: 100rpx;
+  background-color: #FF5A5F;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4rpx 12rpx rgba(255, 90, 95, 0.3);
+  border: none;
+  z-index: 100;
+  border-radius: 50rpx;
+  transition: all 0.3s ease;
+}
+
+.add-record-btn:active {
+  transform: scale(0.95);
+}
+
+.add-record-btn .pixel-icon {
+  width: 40rpx;
+  height: 40rpx;
+  color: #ffffff;
+} 

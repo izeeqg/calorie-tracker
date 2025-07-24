@@ -1,0 +1,245 @@
+/**
+ * @file pixel-icons.wxss
+ * @description 像素风格图标集
+ */
+
+/* 像素图标容器 */
+.pixel-icon {
+  display: inline-block;
+  width: 32rpx;
+  height: 32rpx;
+  position: relative;
+  image-rendering: pixelated;
+}
+
+/* 基础像素点单位 */
+.pixel {
+  position: absolute;
+  width: 4rpx;
+  height: 4rpx;
+  background-color: currentColor;
+}
+
+/* 像素照相机图标 */
+.pixel-icon-camera .pixel-1 { top: 0; left: 12rpx; width: 8rpx; } 
+.pixel-icon-camera .pixel-2 { top: 4rpx; left: 8rpx; width: 16rpx; }
+.pixel-icon-camera .pixel-3 { top: 8rpx; left: 4rpx; width: 24rpx; }
+.pixel-icon-camera .pixel-4, .pixel-icon-camera .pixel-5, 
+.pixel-icon-camera .pixel-6, .pixel-icon-camera .pixel-7 { top: 12rpx; left: 4rpx; width: 24rpx; }
+.pixel-icon-camera .pixel-8 { top: 16rpx; left: 8rpx; width: 16rpx; }
+.pixel-icon-camera .pixel-9 { top: 20rpx; left: 12rpx; width: 8rpx; }
+.pixel-icon-camera .pixel-10 { top: 12rpx; left: 12rpx; width: 8rpx; height: 8rpx; border-radius: 0; border: 1rpx solid #fff; background-color: transparent; box-sizing: border-box; }
+
+/* 像素食物图标 */
+.pixel-icon-food .pixel-1 { top: 4rpx; left: 8rpx; width: 16rpx; }
+.pixel-icon-food .pixel-2 { top: 8rpx; left: 4rpx; width: 24rpx; }
+.pixel-icon-food .pixel-3, .pixel-icon-food .pixel-4, 
+.pixel-icon-food .pixel-5, .pixel-icon-food .pixel-6 { top: 12rpx; left: 4rpx; width: 24rpx; }
+.pixel-icon-food .pixel-7 { top: 16rpx; left: 8rpx; width: 16rpx; }
+.pixel-icon-food .pixel-8 { top: 20rpx; left: 12rpx; width: 8rpx; }
+.pixel-icon-food .pixel-9 { top: 24rpx; left: 4rpx; width: 24rpx; }
+
+/* 像素用户图标 */
+.pixel-icon-user .pixel-1 { top: 0; left: 12rpx; width: 8rpx; height: 8rpx; }
+.pixel-icon-user .pixel-2 { top: 8rpx; left: 8rpx; width: 16rpx; height: 4rpx; }
+.pixel-icon-user .pixel-3 { top: 12rpx; left: 4rpx; width: 24rpx; height: 4rpx; }
+.pixel-icon-user .pixel-4 { top: 16rpx; left: 8rpx; width: 16rpx; height: 8rpx; }
+.pixel-icon-user .pixel-5 { top: 24rpx; left: 4rpx; width: 24rpx; height: 4rpx; }
+
+/* 像素历史记录图标 */
+.pixel-icon-history .pixel-1 { top: 4rpx; left: 4rpx; width: 24rpx; }
+.pixel-icon-history .pixel-2 { top: 8rpx; left: 4rpx; width: 4rpx; }
+.pixel-icon-history .pixel-3 { top: 8rpx; left: 24rpx; width: 4rpx; }
+.pixel-icon-history .pixel-4 { top: 12rpx; left: 4rpx; width: 4rpx; }
+.pixel-icon-history .pixel-5 { top: 12rpx; left: 12rpx; width: 8rpx; }
+.pixel-icon-history .pixel-6 { top: 12rpx; left: 24rpx; width: 4rpx; }
+.pixel-icon-history .pixel-7 { top: 16rpx; left: 4rpx; width: 4rpx; }
+.pixel-icon-history .pixel-8 { top: 16rpx; left: 16rpx; width: 8rpx; }
+.pixel-icon-history .pixel-9 { top: 16rpx; left: 24rpx; width: 4rpx; }
+.pixel-icon-history .pixel-10 { top: 20rpx; left: 4rpx; width: 24rpx; }
+
+/* 像素设置图标 */
+.pixel-icon-setting .pixel-1 { top: 4rpx; left: 12rpx; width: 8rpx; }
+.pixel-icon-setting .pixel-2 { top: 8rpx; left: 8rpx; width: 16rpx; }
+.pixel-icon-setting .pixel-3 { top: 12rpx; left: 4rpx; width: 24rpx; }
+.pixel-icon-setting .pixel-4 { top: 16rpx; left: 8rpx; width: 16rpx; }
+.pixel-icon-setting .pixel-5 { top: 20rpx; left: 12rpx; width: 8rpx; }
+.pixel-icon-setting .pixel-6 { top: 12rpx; left: 12rpx; width: 8rpx; height: 8rpx; }
+
+/* 像素添加图标 */
+.pixel-icon-add .pixel-1 { top: 12rpx; left: 4rpx; width: 24rpx; }
+.pixel-icon-add .pixel-2 { top: 4rpx; left: 12rpx; height: 24rpx; width: 8rpx; }
+
+/* 像素删除图标 */
+.pixel-icon-delete .pixel-1 { top: 12rpx; left: 4rpx; width: 24rpx; }
+
+/* 像素保存图标 */
+.pixel-icon-save .pixel-1 { top: 4rpx; left: 4rpx; width: 24rpx; }
+.pixel-icon-save .pixel-2 { top: 8rpx; left: 4rpx; width: 24rpx; }
+.pixel-icon-save .pixel-3 { top: 12rpx; left: 8rpx; width: 16rpx; }
+.pixel-icon-save .pixel-4 { top: 16rpx; left: 12rpx; width: 8rpx; }
+.pixel-icon-save .pixel-5 { top: 20rpx; left: 14rpx; width: 4rpx; }
+
+/* 像素分享图标 */
+.pixel-icon-share .pixel-1 { top: 4rpx; left: 20rpx; width: 8rpx; }
+.pixel-icon-share .pixel-2 { top: 8rpx; left: 16rpx; width: 12rpx; }
+.pixel-icon-share .pixel-3 { top: 12rpx; left: 4rpx; width: 24rpx; }
+.pixel-icon-share .pixel-4 { top: 16rpx; left: 12rpx; width: 8rpx; }
+.pixel-icon-share .pixel-5 { top: 20rpx; left: 12rpx; width: 8rpx; }
+.pixel-icon-share .pixel-6 { top: 24rpx; left: 8rpx; width: 16rpx; }
+
+/* 像素日历图标 */
+.pixel-icon-calendar .pixel-1 { top: 0; left: 4rpx; width: 24rpx; }
+.pixel-icon-calendar .pixel-2 { top: 4rpx; left: 4rpx; width: 4rpx; height: 20rpx; }
+.pixel-icon-calendar .pixel-3 { top: 4rpx; left: 24rpx; width: 4rpx; height: 20rpx; }
+.pixel-icon-calendar .pixel-4 { top: 8rpx; left: 12rpx; width: 8rpx; }
+.pixel-icon-calendar .pixel-5 { top: 16rpx; left: 8rpx; width: 4rpx; }
+.pixel-icon-calendar .pixel-6 { top: 16rpx; left: 16rpx; width: 4rpx; }
+.pixel-icon-calendar .pixel-7 { top: 20rpx; left: 12rpx; width: 8rpx; }
+.pixel-icon-calendar .pixel-8 { top: 24rpx; left: 4rpx; width: 24rpx; }
+
+/* 像素统计图标 */
+.pixel-icon-stats .pixel-1 { top: 4rpx; left: 4rpx; width: 4rpx; height: 20rpx; }
+.pixel-icon-stats .pixel-2 { top: 24rpx; left: 4rpx; width: 24rpx; }
+.pixel-icon-stats .pixel-3 { top: 8rpx; left: 12rpx; width: 4rpx; height: 16rpx; }
+.pixel-icon-stats .pixel-4 { top: 12rpx; left: 20rpx; width: 4rpx; height: 12rpx; }
+
+/* 像素箭头图标 - 向右 */
+.pixel-icon-arrow .pixel-1 { top: 12rpx; left: 4rpx; width: 16rpx; height: 4rpx; }
+.pixel-icon-arrow .pixel-2 { top: 8rpx; left: 12rpx; width: 4rpx; height: 4rpx; }
+.pixel-icon-arrow .pixel-3 { top: 4rpx; left: 16rpx; width: 4rpx; height: 4rpx; }
+.pixel-icon-arrow .pixel-4 { top: 16rpx; left: 12rpx; width: 4rpx; height: 4rpx; }
+.pixel-icon-arrow .pixel-5 { top: 20rpx; left: 16rpx; width: 4rpx; height: 4rpx; }
+
+/* 像素箭头图标 - 向左 */
+.pixel-icon-arrow-left .pixel-1 { top: 12rpx; left: 12rpx; width: 16rpx; height: 4rpx; }
+.pixel-icon-arrow-left .pixel-2 { top: 8rpx; left: 16rpx; width: 4rpx; height: 4rpx; }
+.pixel-icon-arrow-left .pixel-3 { top: 4rpx; left: 12rpx; width: 4rpx; height: 4rpx; }
+.pixel-icon-arrow-left .pixel-4 { top: 16rpx; left: 16rpx; width: 4rpx; height: 4rpx; }
+.pixel-icon-arrow-left .pixel-5 { top: 20rpx; left: 12rpx; width: 4rpx; height: 4rpx; }
+
+/* 像素信息图标 */
+.pixel-icon-info .pixel-1 { top: 4rpx; left: 12rpx; width: 8rpx; height: 4rpx; }
+.pixel-icon-info .pixel-2 { top: 12rpx; left: 12rpx; width: 8rpx; height: 12rpx; }
+
+/* 像素火焰图标 */
+.pixel-icon-fire .pixel-1 { top: 0; left: 12rpx; width: 8rpx; height: 4rpx; }
+.pixel-icon-fire .pixel-2 { top: 4rpx; left: 8rpx; width: 16rpx; height: 4rpx; }
+.pixel-icon-fire .pixel-3 { top: 8rpx; left: 8rpx; width: 16rpx; height: 4rpx; }
+.pixel-icon-fire .pixel-4 { top: 12rpx; left: 4rpx; width: 24rpx; height: 8rpx; }
+.pixel-icon-fire .pixel-5 { top: 20rpx; left: 8rpx; width: 16rpx; height: 4rpx; }
+.pixel-icon-fire .pixel-6 { top: 24rpx; left: 12rpx; width: 8rpx; height: 4rpx; }
+
+/* 像素标签图标 */
+.pixel-icon-label .pixel-1 { top: 4rpx; left: 4rpx; width: 16rpx; height: 4rpx; }
+.pixel-icon-label .pixel-2 { top: 8rpx; left: 4rpx; width: 16rpx; height: 12rpx; }
+.pixel-icon-label .pixel-3 { top: 20rpx; left: 4rpx; width: 16rpx; height: 4rpx; }
+.pixel-icon-label .pixel-4 { top: 8rpx; left: 20rpx; width: 4rpx; height: 4rpx; }
+.pixel-icon-label .pixel-5 { top: 12rpx; left: 24rpx; width: 4rpx; height: 4rpx; }
+
+/* 像素时钟图标 */
+.pixel-icon-clock .pixel-1 { top: 4rpx; left: 8rpx; width: 16rpx; height: 4rpx; }
+.pixel-icon-clock .pixel-2 { top: 8rpx; left: 4rpx; width: 4rpx; height: 12rpx; }
+.pixel-icon-clock .pixel-3 { top: 8rpx; left: 24rpx; width: 4rpx; height: 12rpx; }
+.pixel-icon-clock .pixel-4 { top: 20rpx; left: 8rpx; width: 16rpx; height: 4rpx; }
+.pixel-icon-clock .pixel-5 { top: 12rpx; left: 16rpx; width: 4rpx; height: 4rpx; }
+.pixel-icon-clock .pixel-6 { top: 16rpx; left: 16rpx; width: 8rpx; height: 4rpx; }
+
+/* 像素目标图标 */
+.pixel-icon-aim .pixel-1 { top: 4rpx; left: 12rpx; width: 8rpx; height: 4rpx; }
+.pixel-icon-aim .pixel-2 { top: 24rpx; left: 12rpx; width: 8rpx; height: 4rpx; }
+.pixel-icon-aim .pixel-3 { top: 12rpx; left: 4rpx; width: 4rpx; height: 8rpx; }
+.pixel-icon-aim .pixel-4 { top: 12rpx; left: 24rpx; width: 4rpx; height: 8rpx; }
+.pixel-icon-aim .pixel-5 { top: 12rpx; left: 12rpx; width: 8rpx; height: 8rpx; }
+
+/* 像素天平图标 */
+.pixel-icon-balance .pixel-1 { top: 4rpx; left: 12rpx; width: 8rpx; height: 8rpx; }
+.pixel-icon-balance .pixel-2 { top: 12rpx; left: 4rpx; width: 24rpx; height: 4rpx; }
+.pixel-icon-balance .pixel-3 { top: 16rpx; left: 4rpx; width: 8rpx; height: 4rpx; }
+.pixel-icon-balance .pixel-4 { top: 16rpx; left: 20rpx; width: 8rpx; height: 4rpx; }
+.pixel-icon-balance .pixel-5 { top: 20rpx; left: 4rpx; width: 8rpx; height: 4rpx; }
+.pixel-icon-balance .pixel-6 { top: 20rpx; left: 20rpx; width: 8rpx; height: 4rpx; }
+
+/* 像素加号图标 */
+.pixel-icon-plus .pixel-1 { top: 12rpx; left: 4rpx; width: 24rpx; height: 4rpx; }
+.pixel-icon-plus .pixel-2 { top: 4rpx; left: 12rpx; width: 4rpx; height: 20rpx; }
+
+/* 像素叉号图标 */
+.pixel-icon-cross .pixel-1 { top: 4rpx; left: 4rpx; width: 4rpx; height: 4rpx; }
+.pixel-icon-cross .pixel-2 { top: 8rpx; left: 8rpx; width: 4rpx; height: 4rpx; }
+.pixel-icon-cross .pixel-3 { top: 12rpx; left: 12rpx; width: 4rpx; height: 4rpx; }
+.pixel-icon-cross .pixel-4 { top: 16rpx; left: 16rpx; width: 4rpx; height: 4rpx; }
+.pixel-icon-cross .pixel-5 { top: 20rpx; left: 20rpx; width: 4rpx; height: 4rpx; }
+.pixel-icon-cross .pixel-6 { top: 4rpx; left: 20rpx; width: 4rpx; height: 4rpx; }
+.pixel-icon-cross .pixel-7 { top: 8rpx; left: 16rpx; width: 4rpx; height: 4rpx; }
+.pixel-icon-cross .pixel-8 { top: 16rpx; left: 8rpx; width: 4rpx; height: 4rpx; }
+.pixel-icon-cross .pixel-9 { top: 20rpx; left: 4rpx; width: 4rpx; height: 4rpx; }
+
+/* 像素列表图标 */
+.pixel-icon-bars .pixel-1 { top: 4rpx; left: 4rpx; width: 24rpx; height: 4rpx; }
+.pixel-icon-bars .pixel-2 { top: 12rpx; left: 4rpx; width: 24rpx; height: 4rpx; }
+.pixel-icon-bars .pixel-3 { top: 20rpx; left: 4rpx; width: 24rpx; height: 4rpx; }
+
+/* 动画效果 */
+@keyframes pixel-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.pixel-animate-pulse {
+  animation: pixel-pulse 1.5s infinite steps(2);
+}
+
+@keyframes pixel-rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.pixel-animate-rotate {
+  animation: pixel-rotate 2s infinite steps(8);
+}
+
+@keyframes pixel-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.pixel-animate-blink {
+  animation: pixel-blink 1s infinite steps(2);
+}
+
+/* 像素动画过渡 */
+.pixel-transition {
+  transition: all 0.3s steps(3);
+}
+
+/* 像素风格Vant图标通用覆盖样式 */
+.van-icon {
+  position: relative !important;
+  image-rendering: pixelated !important;
+  font: normal normal normal 14px/1 'PixelFont', sans-serif !important;
+  border: 2rpx solid transparent;
+}
+
+.van-icon::before {
+  opacity: 0.8;
+}
+
+.van-icon::after {
+  content: '';
+  position: absolute;
+  top: -2rpx;
+  left: -2rpx;
+  right: -2rpx;
+  bottom: -2rpx;
+  border: 2rpx solid currentColor;
+  opacity: 0.3;
+}
+
+/* 激活状态图标 */
+.active .van-icon,
+.van-icon--active {
+  transform: scale(1.05);
+  border: 2rpx solid currentColor;
+} 

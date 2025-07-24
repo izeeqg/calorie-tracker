@@ -1,0 +1,202 @@
+<!--detail.wxml-->
+<view class="page-container">
+  <van-nav-bar
+    title="{{isFoodDetail ? '食物详情' : '记录详情'}}"
+    left-text="返回"
+    left-arrow
+    bind:click-left="goBack"
+    fixed
+    border="{{false}}"
+    custom-class="nav-bar"
+    safe-area-inset-top
+  />
+  
+  <view class="content">
+    <!-- 食物详情 -->
+    <block wx:if="{{isFoodDetail}}">
+      <view class="food-header card">
+        <view class="food-title">{{food.name}}</view>
+        <view class="food-calories">
+          <text class="calories-value">{{food.calories}}</text>
+          <text class="calories-unit">千卡</text>
+        </view>
+      </view>
+      
+      <view class="food-info-card card">
+        <view class="info-item flex-between">
+          <view class="info-label flex-center">
+            <!-- 像素天平图标 -->
+            <view class="pixel-icon pixel-icon-balance info-icon">
+              <view class="pixel-box">
+                <view class="pixel pixel-1"></view>
+                <view class="pixel pixel-2"></view>
+                <view class="pixel pixel-3"></view>
+                <view class="pixel pixel-4"></view>
+              </view>
+            </view>
+            <text>分量</text>
+          </view>
+          <view class="info-value">{{food.weight}}</view>
+        </view>
+        
+        <view class="info-item flex-between" wx:if="{{food.confidence}}">
+          <view class="info-label flex-center">
+            <!-- 像素目标图标 -->
+            <view class="pixel-icon pixel-icon-aim info-icon">
+              <view class="pixel-box">
+                <view class="pixel pixel-1"></view>
+                <view class="pixel pixel-2"></view>
+                <view class="pixel pixel-3"></view>
+              </view>
+            </view>
+            <text>识别准确度</text>
+          </view>
+          <view class="info-value">{{food.confidence * 100}}%</view>
+        </view>
+      </view>
+      
+      <view class="nutrition-card card">
+        <view class="card-title">营养成分表（估算值）</view>
+        
+        <view class="nutrition-item flex-between">
+          <view class="nutrition-label">蛋白质</view>
+          <view class="nutrition-value">{{getNutrition(food.calories, 'protein')}}</view>
+        </view>
+        
+        <view class="nutrition-item flex-between">
+          <view class="nutrition-label">脂肪</view>
+          <view class="nutrition-value">{{getNutrition(food.calories, 'fat')}}</view>
+        </view>
+        
+        <view class="nutrition-item flex-between">
+          <view class="nutrition-label">碳水化合物</view>
+          <view class="nutrition-value">{{getNutrition(food.calories, 'carbs')}}</view>
+        </view>
+      </view>
+    </block>
+    
+    <!-- 记录详情 -->
+    <block wx:elif="{{isRecordDetail}}">
+      <view class="record-image-card card">
+        <van-image
+          width="100%"
+          height="420rpx" 
+          src="{{record.image}}" 
+          fit="cover"
+          show-loading="{{false}}"
+        />
+      </view>
+      
+      <view class="record-info-card card">
+        <view class="info-item flex-between">
+          <view class="info-label flex-center">
+            <!-- 像素时钟图标 -->
+            <view class="pixel-icon pixel-icon-clock info-icon">
+              <view class="pixel-box">
+                <view class="pixel pixel-1"></view>
+                <view class="pixel pixel-2"></view>
+                <view class="pixel pixel-3"></view>
+              </view>
+            </view>
+            <text>记录时间</text>
+          </view>
+          <view class="info-value">{{formatDate(record.date)}}</view>
+        </view>
+        
+        <view class="info-item flex-between">
+          <view class="info-label flex-center">
+            <!-- 像素标签图标 -->
+            <view class="pixel-icon pixel-icon-label info-icon">
+              <view class="pixel-box">
+                <view class="pixel pixel-1"></view>
+                <view class="pixel pixel-2"></view>
+                <view class="pixel pixel-3"></view>
+              </view>
+            </view>
+            <text>餐食类型</text>
+          </view>
+          <view class="info-value meal-type">
+            <van-tag type="primary" round>{{getMealTypeText(record.mealType)}}</van-tag>
+          </view>
+        </view>
+        
+        <view class="info-item flex-between">
+          <view class="info-label flex-center">
+            <!-- 像素火焰图标 -->
+            <view class="pixel-icon pixel-icon-fire info-icon">
+              <view class="pixel-box">
+                <view class="pixel pixel-1"></view>
+                <view class="pixel pixel-2"></view>
+                <view class="pixel pixel-3"></view>
+              </view>
+            </view>
+            <text>总卡路里</text>
+          </view>
+          <view class="info-value calories-highlight">{{record.totalCalories}} 千卡</view>
+        </view>
+      </view>
+      
+      <view class="foods-list-card card">
+        <view class="card-title">食物列表</view>
+        
+        <view 
+          class="food-list-item" 
+          wx:for="{{record.foods}}" 
+          wx:key="index"
+        >
+          <view class="food-list-content flex-between">
+            <view class="food-list-left">
+              <view class="food-list-name">{{item.name}}</view>
+              <view class="food-list-meta flex-center">
+                <view class="food-list-weight">{{item.weight}}</view>
+                <van-tag size="mini" type="success" custom-class="confidence-tag">
+                  {{item.confidence * 100}}%
+                </van-tag>
+              </view>
+            </view>
+            <view class="food-list-calories">{{item.calories}} 千卡</view>
+          </view>
+        </view>
+      </view>
+      
+      <view class="share-section">
+        <view class="share-title">分享记录</view>
+        <view class="share-buttons">
+        <van-button 
+          type="primary" 
+          custom-class="custom-button share-button"
+          open-type="share"
+            bindtap="shareToFriend"
+        >
+          <!-- 像素分享图标 -->
+          <view class="pixel-icon pixel-icon-share" style="margin-right: 10rpx;">
+            <view class="pixel-box">
+              <view class="pixel pixel-1"></view>
+              <view class="pixel pixel-2"></view>
+              <view class="pixel pixel-3"></view>
+            </view>
+          </view>
+            发送给朋友
+          </van-button>
+          
+          <van-button 
+            type="info" 
+            custom-class="custom-button timeline-button"
+            bindtap="shareToTimeline"
+          >
+            <!-- 像素朋友圈图标 -->
+            <view class="pixel-icon pixel-icon-timeline" style="margin-right: 10rpx;">
+              <view class="pixel-box">
+                <view class="pixel pixel-1"></view>
+                <view class="pixel pixel-2"></view>
+                <view class="pixel pixel-3"></view>
+                <view class="pixel pixel-4"></view>
+              </view>
+            </view>
+            分享到朋友圈
+        </van-button>
+        </view>
+      </view>
+    </block>
+  </view>
+</view> 

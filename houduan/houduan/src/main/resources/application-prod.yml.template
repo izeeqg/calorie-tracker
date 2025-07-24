@@ -1,0 +1,52 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mysql://your_prod_host:3306/calorie_tracker?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: your_prod_username
+    password: your_prod_password
+    hikari:
+      minimum-idle: 10
+      maximum-pool-size: 50
+  redis:
+    host: your_prod_redis_host
+    port: 6379
+    password: your_prod_redis_password
+
+# MinIO生产环境配置
+minio:
+  endpoint: https://your_domain.com
+  access-key: your_prod_minio_access_key
+  secret-key: your_prod_minio_secret_key
+  bucket-name: calorie-images
+  domain: https://your_domain.com/files
+
+# 生产环境日志配置
+logging:
+  level:
+    root: warn
+    com.calorie: info
+  file:
+    path: /var/log/calorie-tracker
+    max-size: 100MB
+    max-history: 30
+
+# 微信小程序生产环境配置
+wx:
+  miniapp:
+    appid: your_prod_wechat_appid
+    secret: your_prod_wechat_secret
+
+# 百度AI生产环境配置
+image:
+  recognition:
+    baidu:
+      app-id: your_prod_baidu_app_id
+      api-key: your_prod_baidu_api_key
+      secret-key: your_prod_baidu_secret_key
+
+# JWT生产环境配置
+jwt:
+  secret: your_production_jwt_secret_key_must_be_very_secure_and_at_least_32_characters
+  expire: 604800

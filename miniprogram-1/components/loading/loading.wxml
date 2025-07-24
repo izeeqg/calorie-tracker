@@ -1,0 +1,8 @@
+<view class="loading-container" wx:if="{{show}}">
+  <view class="loading-overlay"></view>
+  <view class="loading-content">
+    <view class="loading-squares">
+      <view class="square"></view>
+    </view>
+  </view>
+</view> 

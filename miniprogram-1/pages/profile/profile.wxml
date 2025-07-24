@@ -1,0 +1,165 @@
+<!--profile.wxml-->
+<view class="page-container">
+  <!-- 顶部导航栏 -->
+  <view class="nav-header">
+    <text class="page-title">我的</text>
+  </view>
+  
+  <view class="content">
+    <!-- 用户信息卡片 -->
+    <view class="user-card">
+      <view class="user-avatar-container">
+        <view class="user-avatar-bg">
+          <van-image
+            width="160rpx"
+            height="160rpx"
+            src="{{userInfo.avatarUrl || '/images/default-avatar.png'}}"
+            fit="cover"
+            custom-class="user-avatar"
+            show-loading="{{false}}"
+          />
+        </view>
+      </view>
+      <view class="user-info">
+        <text class="user-nickname">{{userInfo.nickName || '小青春'}}</text>
+        <text class="user-subtitle">已坚持打卡 32 天</text>
+      </view>
+    </view>
+    
+    <!-- 我的数据 -->
+    <view class="data-card">
+      <view class="card-title">我的数据</view>
+      
+      <view class="data-content">
+        <view class="data-item">
+          <text class="data-label">身高</text>
+          <text class="data-value">168 cm</text>
+        </view>
+        
+        <view class="data-item">
+          <text class="data-label">体重</text>
+          <text class="data-value">56 kg</text>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 目标设置 -->
+    <view class="goal-card">
+      <view class="goal-title">卡路里目标</view>
+      
+      <view class="goal-content">
+        <view class="goal-progress-bg">
+          <view class="goal-progress-bar" style="width: 60%;"></view>
+        </view>
+        <text class="goal-value">2000</text>
+      </view>
+    </view>
+    
+    <!-- 功能列表 -->
+    <view class="feature-list">
+      <!-- 历史统计 -->
+      <view class="feature-item" bindtap="navigateToHistory">
+        <view class="feature-icon-container">
+          <view class="feature-icon feature-icon-history">
+            <!-- 像素统计图标 -->
+            <view class="pixel-icon pixel-icon-stats">
+              <view class="pixel-box">
+                <view class="pixel pixel-1"></view>
+                <view class="pixel pixel-2"></view>
+                <view class="pixel pixel-3"></view>
+                <view class="pixel pixel-4"></view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <text class="feature-title">历史统计</text>
+        <view class="feature-arrow">
+          <text>›</text>
+        </view>
+      </view>
+      
+      <!-- 食物图库 -->
+      <view class="feature-item" bindtap="navigateToFoodLibrary">
+        <view class="feature-icon-container">
+          <view class="feature-icon feature-icon-foods">
+            <!-- 像素食物图标 -->
+            <view class="pixel-icon pixel-icon-food">
+              <view class="pixel-box">
+                <view class="pixel pixel-1"></view>
+                <view class="pixel pixel-2"></view>
+                <view class="pixel pixel-3"></view>
+                <view class="pixel pixel-4"></view>
+                <view class="pixel pixel-5"></view>
+                <view class="pixel pixel-6"></view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <text class="feature-title">食物图库</text>
+        <view class="feature-arrow">
+          <text>›</text>
+        </view>
+      </view>
+      
+      <!-- 默认用户设置 -->
+      <view class="feature-item">
+        <view class="feature-icon-container">
+          <view class="feature-icon feature-icon-default-user">
+            <!-- 像素用户图标 -->
+            <view class="pixel-icon pixel-icon-user">
+              <view class="pixel-box">
+                <view class="pixel pixel-1"></view>
+                <view class="pixel pixel-2"></view>
+                <view class="pixel pixel-3"></view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <text class="feature-title">默认用户</text>
+        <view class="feature-switch">
+          <switch checked="{{useDefaultUser}}" bindchange="toggleDefaultUser" color="#FF5A5F" />
+        </view>
+      </view>
+      
+      <!-- 设置 -->
+      <view class="feature-item" bindtap="navigateToSettings">
+        <view class="feature-icon-container">
+          <view class="feature-icon feature-icon-settings">
+            <!-- 像素设置图标 -->
+            <view class="pixel-icon pixel-icon-setting">
+              <view class="pixel-box">
+                <view class="pixel pixel-1"></view>
+                <view class="pixel pixel-2"></view>
+                <view class="pixel pixel-3"></view>
+                <view class="pixel pixel-4"></view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <text class="feature-title">设置</text>
+        <view class="feature-arrow">
+          <text>›</text>
+        </view>
+      </view>
+      
+      <!-- 关于我们 -->
+      <view class="feature-item" bindtap="aboutUs">
+        <view class="feature-icon-container">
+          <view class="feature-icon feature-icon-about">
+            <!-- 像素信息图标 -->
+            <view class="pixel-icon pixel-icon-info">
+              <view class="pixel-box">
+                <view class="pixel pixel-1"></view>
+                <view class="pixel pixel-2"></view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <text class="feature-title">关于我们</text>
+        <view class="feature-arrow">
+          <text>›</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view> 

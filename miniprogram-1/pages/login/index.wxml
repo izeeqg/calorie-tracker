@@ -1,0 +1,61 @@
+<!-- pages/login/index.wxml -->
+<view class="login-container">
+  <view class="logo-container">
+    <image class="logo" src="{{logoUrl}}" mode="aspectFit"></image>
+    <view class="app-name">食刻卡路里</view>
+    <view class="app-desc">AI智能识别，轻松记录卡路里</view>
+  </view>
+  
+  <view class="login-panel">
+    <view class="welcome-text">欢迎使用</view>
+    <view class="login-tip">请授权微信登录以使用完整功能</view>
+    
+    <!-- 隐私政策和用户协议同意区域 -->
+    <view class="agreement-section">
+      <view class="agreement-item">
+        <checkbox-group bindchange="onPrivacyChange">
+          <checkbox value="privacy" checked="{{agreedToPrivacy}}" color="#ff6b8a"/>
+        </checkbox-group>
+        <text class="agreement-text">我已阅读并同意</text>
+        <text class="agreement-link" bindtap="viewPrivacyPolicy">《隐私政策》</text>
+      </view>
+      
+      <view class="agreement-item">
+        <checkbox-group bindchange="onTermsChange">
+          <checkbox value="terms" checked="{{agreedToTerms}}" color="#ff6b8a"/>
+        </checkbox-group>
+        <text class="agreement-text">我已阅读并同意</text>
+        <text class="agreement-link" bindtap="viewUserAgreement">《用户协议》</text>
+      </view>
+    </view>
+    
+    <!-- 登录按钮 -->
+    <button class="login-btn" bindtap="handleLogin">
+      <image class="wechat-icon" src="/images/wechat.png" mode="aspectFit"></image>
+      微信一键登录
+    </button>
+    
+    <!-- 游客模式选项 -->
+    <view class="guest-section">
+      <view class="divider-line">
+        <text class="divider-text">或</text>
+      </view>
+      
+      <button class="guest-btn" bindtap="enterGuestMode">
+        <text class="guest-icon">👤</text>
+        游客模式体验
+      </button>
+      
+      <view class="guest-desc">
+        <text class="guest-desc-text">• 无需登录，立即体验基本功能</text>
+        <text class="guest-desc-text">• 数据保存在本地，随时可以登录同步</text>
+        <text class="guest-desc-text">• 登录后享受完整的云端服务</text>
+      </view>
+    </view>
+    
+    <text class="privacy-tip">登录需仔细阅读上述协议并确认同意</text>
+  </view>
+
+  <!-- 自定义加载动画组件 -->
+  <custom-loading id="custom-loading" show="{{false}}"></custom-loading>
+</view> 

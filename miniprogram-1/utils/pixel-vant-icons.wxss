@@ -1,0 +1,150 @@
+/**
+ * @file pixel-vant-icons.wxss
+ * @description 像素风格Vant图标覆盖样式
+ */
+
+/* Vant图标像素风格化基础样式 */
+.van-icon {
+  position: relative !important;
+  image-rendering: pixelated !important;
+  font-family: 'PixelFont', sans-serif !important;
+  border: 2rpx solid transparent !important;
+}
+
+.van-icon::before {
+  opacity: 0.9 !important;
+}
+
+.van-icon::after {
+  content: '' !important;
+  position: absolute !important;
+  top: -1rpx !important;
+  left: -1rpx !important;
+  right: -1rpx !important;
+  bottom: -1rpx !important;
+  border: 1rpx solid currentColor !important;
+  opacity: 0.4 !important;
+}
+
+/* 像素风格图标容器 */
+.pixel-icon-container {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 40rpx !important;
+  height: 40rpx !important;
+  background-color: transparent !important;
+  position: relative !important;
+  border: 2rpx solid currentColor !important;
+  image-rendering: pixelated !important;
+}
+
+/* 常用Vant图标像素风格覆盖 */
+.van-icon-photograph {
+  font-family: 'PixelFont', sans-serif !important;
+  position: relative !important;
+}
+
+.van-icon-photograph::before {
+  content: "" !important;
+  position: absolute !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-image: linear-gradient(transparent 20%, currentColor 20%, currentColor 25%, transparent 25%),
+                    linear-gradient(transparent 45%, currentColor 45%, currentColor 55%, transparent 55%),
+                    linear-gradient(transparent 75%, currentColor 75%, currentColor 80%, transparent 80%),
+                    linear-gradient(90deg, transparent 20%, currentColor 20%, currentColor 25%, transparent 25%),
+                    linear-gradient(90deg, transparent 45%, currentColor 45%, currentColor 55%, transparent 55%),
+                    linear-gradient(90deg, transparent 75%, currentColor 75%, currentColor 80%, transparent 80%) !important;
+  background-size: 100% 100% !important;
+  background-position: center !important;
+  image-rendering: pixelated !important;
+}
+
+.van-icon-camera {
+  font-family: 'PixelFont', sans-serif !important;
+  position: relative !important;
+}
+
+.van-icon-camera::before {
+  content: "" !important;
+  position: absolute !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-image: linear-gradient(transparent 25%, currentColor 25%, currentColor 75%, transparent 75%),
+                    linear-gradient(90deg, transparent 25%, currentColor 25%, currentColor 75%, transparent 75%) !important;
+  background-size: 80% 80% !important;
+  background-position: center !important;
+  image-rendering: pixelated !important;
+}
+
+.van-icon-records::before,
+.van-icon-manager::before,
+.van-icon-bar-chart-o::before,
+.van-icon-photo-o::before,
+.van-icon-setting-o::before,
+.van-icon-info-o::before,
+.van-icon-balance-o::before,
+.van-icon-aim::before,
+.van-icon-clock-o::before,
+.van-icon-label-o::before,
+.van-icon-fire-o::before,
+.van-icon-calendar-o::before,
+.van-icon-arrow::before,
+.van-icon-plus::before,
+.van-icon-cross::before,
+.van-icon-bars::before {
+  text-shadow: 1rpx 1rpx 0 rgba(0, 0, 0, 0.2) !important;
+  image-rendering: pixelated !important;
+}
+
+/* 图标悬停和活跃状态 */
+.van-icon:active {
+  transform: scale(0.95) !important;
+  transition: transform 0.1s steps(2) !important;
+}
+
+/* 特定区域的图标自定义样式 */
+.info-icon.van-icon {
+  margin-right: 12rpx !important;
+  color: #FF5A5F !important;
+  background-color: rgba(255, 90, 95, 0.1) !important;
+  padding: 6rpx !important;
+  border: 2rpx solid currentColor !important;
+}
+
+/* 自定义像素风格标签图标 */
+.van-tag .van-icon {
+  font-size: 24rpx !important;
+  margin-right: 4rpx !important;
+}
+
+/* 底部导航栏图标增强 */
+.tabbar-item .van-icon {
+  font-size: 40rpx !important;
+  display: block !important;
+  color: #7e7e8f !important;
+  margin-bottom: 4rpx !important;
+  text-shadow: 1rpx 1rpx 0 rgba(0, 0, 0, 0.1) !important;
+}
+
+.tabbar-item.active .van-icon {
+  color: #FF5A5F !important;
+  text-shadow: 1rpx 1rpx 0 rgba(0, 0, 0, 0.2) !important;
+}
+
+/* 中间按钮图标样式 */
+.center-button .van-icon {
+  font-size: 60rpx !important;
+  color: #FFFFFF !important;
+  text-shadow: 2rpx 2rpx 0 rgba(0, 0, 0, 0.3) !important;
+}
+
+/* 加载状态覆盖 */
+.van-loading__spinner {
+  image-rendering: pixelated !important;
+}
+
+.van-loading__spinner--circular {
+  animation-timing-function: steps(8) !important;
+} 

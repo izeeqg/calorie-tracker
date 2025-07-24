@@ -1,0 +1,145 @@
+<!--history.wxml-->
+<view class="page-container">
+  <!-- 顶部导航栏 -->
+  <view class="nav-header">
+    <text class="page-title">饮食记录</text>
+  </view>
+  
+  <view class="content">
+    <!-- 日期选择器 -->
+    <view class="date-selector-card" bindtap="showCalendar">
+      <view class="date-selector-content">
+        <view class="date-icon-wrap">
+          <van-icon name="calendar-o" size="40rpx" color="#FF5A5F" />
+        </view>
+        <text class="date-text">{{currentDate || '2025年5月14日'}}</text>
+        <view class="date-arrow">
+          <van-icon name="arrow-down" size="32rpx" color="#999999" />
+        </view>
+      </view>
+    </view>
+    
+    <!-- 统计卡片 -->
+    <view class="stats-card">
+      <view class="stats-header">
+        <text class="stats-title">今日总计</text>
+        <view class="stats-calories">
+          <text class="calories-value">{{todayCalories || 780}}</text>
+          <text class="calories-unit">卡路里</text>
+        </view>
+      </view>
+      
+      <!-- 进度条 -->
+      <view class="progress-container">
+        <view class="progress-bg"></view>
+        <view class="progress-bar" style="width: {{(todayCalories/targetCalories) * 100 || 39}}%;"></view>
+      </view>
+      <view class="progress-text">目标 {{targetCalories}} 卡路里 ({{Math.round((todayCalories/targetCalories) * 100) || 39}}%)</view>
+    </view>
+    
+    <!-- 营养素分布 -->
+    <view class="nutrition-card">
+      <view class="nutrition-title">营养素分布</view>
+      
+      <view class="nutrition-content">
+        <view class="nutrition-chart">
+          <!-- 简化饼图 -->
+          <view class="pie-chart"></view>
+        </view>
+        
+        <view class="nutrition-legend">
+          <view class="legend-item">
+            <view class="legend-color carbs-color"></view>
+            <text class="legend-text">碳水 (45%)</text>
+          </view>
+          
+          <view class="legend-item">
+            <view class="legend-color protein-color"></view>
+            <text class="legend-text">蛋白质 (25%)</text>
+          </view>
+          
+          <view class="legend-item">
+            <view class="legend-color fat-color"></view>
+            <text class="legend-text">脂肪 (20%)</text>
+          </view>
+          
+          <view class="legend-item">
+            <view class="legend-color other-color"></view>
+            <text class="legend-text">其他 (10%)</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 详细记录标题 -->
+    <view class="records-title">详细记录</view>
+    
+    <!-- 记录列表 -->
+    <view class="records-list">
+      <!-- 早餐记录 -->
+      <view class="record-item" bindtap="viewRecordDetail" data-index="0">
+        <view class="record-icon">
+          <view class="meal-icon-breakfast">
+            <van-icon name="shopping-cart-o" size="36rpx" color="#4CAF50" />
+          </view>
+        </view>
+        
+        <view class="record-info">
+          <text class="record-title">早餐 - 08:15</text>
+          <text class="record-food">牛奶麦片</text>
+        </view>
+        
+        <view class="record-calories">
+          <text class="calories-value">320</text>
+          <text class="calories-unit">卡路里</text>
+        </view>
+        
+        <view class="record-delete" catchtap="deleteRecord" data-index="0">
+          <view class="delete-icon-wrap">
+            <van-icon name="cross" size="28rpx" color="#FF5A5F" />
+          </view>
+        </view>
+      </view>
+      
+      <!-- 午餐记录 -->
+      <view class="record-item" bindtap="viewRecordDetail" data-index="1">
+        <view class="record-icon">
+          <view class="meal-icon-lunch">
+            <van-icon name="orders-o" size="36rpx" color="#FF9800" />
+          </view>
+        </view>
+        
+        <view class="record-info">
+          <text class="record-title">午餐 - 12:30</text>
+          <text class="record-food">三明治</text>
+        </view>
+        
+        <view class="record-calories">
+          <text class="calories-value">460</text>
+          <text class="calories-unit">卡路里</text>
+        </view>
+        
+        <view class="record-delete" catchtap="deleteRecord" data-index="1">
+          <view class="delete-icon-wrap">
+            <van-icon name="cross" size="28rpx" color="#FF5A5F" />
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 添加按钮 -->
+    <view class="add-record-btn" bindtap="goToRecord">
+      <van-icon name="plus" size="42rpx" color="#FFFFFF" />
+    </view>
+    
+    <!-- 日历弹窗 -->
+    <van-calendar 
+      show="{{showCalendar}}" 
+      bind:close="onCloseCalendar" 
+      bind:confirm="onSelectDate" 
+      color="{{calendarConfig.color}}"
+      round="{{calendarConfig.round}}"
+      safe-area-inset-bottom="{{true}}"
+    />
+  </view>
+</view> 

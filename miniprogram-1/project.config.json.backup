@@ -1,0 +1,33 @@
+{
+  "appid": "wx44da6eaf8e17aaa7",
+  "compileType": "miniprogram",
+  "libVersion": "3.8.8",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "setting": {
+    "coverView": true,
+    "es6": true,
+    "postcss": true,
+    "minified": true,
+    "enhance": false,
+    "showShadowRootInWxmlPanel": true,
+    "packNpmRelationList": [],
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useCompilerPlugins": false,
+    "noCheckLegalDomain": true
+  },
+  "condition": {},
+  "editorSetting": {
+    "tabIndent": "auto",
+    "tabSize": 2
+  },
+  "projectname": "卡路里拍照计算小程序",
+  "description": "拍照识别食物计算卡路里小程序",
+  "lazyCodeLoading": "requiredComponents"
+}

@@ -1,0 +1,224 @@
+/* pages/settings/index.wxss */
+.container {
+  padding: 20rpx;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.header {
+  text-align: center;
+  padding: 40rpx 0;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 跳跃方块加载动画 - From Uiverse.io by alexruix */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400rpx;
+  position: relative;
+}
+
+.loading-container .loader {
+  width: 96rpx;
+  height: 96rpx;
+  margin: auto;
+  position: relative;
+}
+
+.loading-container .loader:before {
+  content: '';
+  width: 96rpx;
+  height: 10rpx;
+  background: rgba(255, 182, 193, 0.4);
+  position: absolute;
+  top: 120rpx;
+  left: 0;
+  border-radius: 50%;
+  animation: shadow324 0.5s linear infinite;
+}
+
+.loading-container .loader:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: #FFB6C1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 8rpx;
+  animation: jump7456 0.5s linear infinite;
+}
+
+@keyframes jump7456 {
+  15% {
+    border-bottom-right-radius: 6rpx;
+  }
+  25% {
+    transform: translateY(18rpx) rotate(22.5deg);
+  }
+  50% {
+    transform: translateY(36rpx) scale(1, .9) rotate(45deg);
+    border-bottom-right-radius: 80rpx;
+  }
+  75% {
+    transform: translateY(18rpx) rotate(67.5deg);
+  }
+  100% {
+    transform: translateY(0) rotate(90deg);
+  }
+}
+
+@keyframes shadow324 {
+  0%, 100% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.2, 1);
+  }
+}
+
+.settings-content {
+  padding-bottom: 40rpx;
+}
+
+.setting-section {
+  margin-bottom: 40rpx;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 20rpx 20rpx 0 0;
+  color: white;
+  font-size: 32rpx;
+  font-weight: bold;
+  box-shadow: 0 4rpx 12rpx rgba(102, 126, 234, 0.3);
+}
+
+.section-title text {
+  margin-left: 16rpx;
+}
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx;
+  background: white;
+  border-bottom: 1rpx solid #f0f0f0;
+  transition: background-color 0.3s ease;
+}
+
+.setting-item:last-child {
+  border-bottom: none;
+  border-radius: 0 0 20rpx 20rpx;
+}
+
+.setting-item:active {
+  background-color: #f8f9fa;
+}
+
+.setting-left {
+  flex: 1;
+}
+
+.setting-label {
+  display: block;
+  font-size: 32rpx;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 8rpx;
+}
+
+.setting-desc {
+  display: block;
+  font-size: 26rpx;
+  color: #999;
+  line-height: 1.4;
+}
+
+.setting-right {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.setting-value {
+  font-size: 28rpx;
+  color: #FF5A5F;
+  font-weight: 500;
+}
+
+.time-picker {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  padding: 16rpx 24rpx;
+  background: #f8f9fa;
+  border-radius: 12rpx;
+  border: 1rpx solid #e0e0e0;
+  min-width: 120rpx;
+  justify-content: center;
+}
+
+.time-picker text {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.reminder-times {
+  background: #f8f9fa;
+  border-radius: 0 0 20rpx 20rpx;
+  padding: 0 20rpx 20rpx;
+}
+
+.reminder-times .setting-item {
+  background: white;
+  margin-bottom: 16rpx;
+  border-radius: 16rpx;
+  border: none;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+.reminder-times .setting-item:last-child {
+  margin-bottom: 0;
+}
+
+/* 开关样式优化 */
+switch {
+  transform: scale(1.2);
+}
+
+/* 响应式设计 */
+@media (max-width: 750rpx) {
+  .container {
+    padding: 16rpx;
+  }
+  
+  .setting-item {
+    padding: 24rpx;
+  }
+  
+  .section-title {
+    padding: 16rpx 24rpx;
+    font-size: 28rpx;
+  }
+  
+  .setting-label {
+    font-size: 28rpx;
+  }
+  
+  .setting-desc {
+    font-size: 24rpx;
+  }
+} 

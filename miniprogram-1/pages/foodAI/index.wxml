@@ -1,0 +1,20 @@
+<!-- pages/foodAI/index.wxml -->
+<view class="container">
+  <!-- 自定义加载动画组件 -->
+  <custom-loading id="custom-loading" show="{{false}}"></custom-loading>
+  <view class="header">
+    <text class="title">拍照识别菜品，轻松记录热量</text>
+  </view>
+  
+  <view class="image-container">
+    <image wx:if="{{tempFilePath}}" src="{{tempFilePath}}" mode="aspectFill" class="food-image"></image>
+    <view wx:else class="placeholder">
+      <text>选择或拍摄食物图片</text>
+    </view>
+  </view>
+  
+  <view class="button-group">
+    <button class="primary-button" bindtap="chooseImage">选择图片</button>
+    <button class="secondary-button" bindtap="recognizeImage" disabled="{{!tempFilePath || isLoading}}" loading="{{isLoading}}">识别菜品</button>
+  </view>
+</view> 

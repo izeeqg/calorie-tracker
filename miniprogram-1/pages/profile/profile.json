@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-image": "/miniprogram_npm/@vant/weapp/image/index",
+    "van-icon": "/miniprogram_npm/@vant/weapp/icon/index"
+  }
+} 

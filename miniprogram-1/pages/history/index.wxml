@@ -1,0 +1,60 @@
+<!--pages/history/index.wxml-->
+<view class="container">
+  <!-- 自定义粉色加载组件 -->
+  <view class="custom-loading" wx:if="{{loading}}">
+    <view class="loading-block"></view>
+  </view>
+
+  <view class="header">
+    <text class="header-title">饮食记录</text>
+    <view class="date-selector" bindtap="showCalendar">
+      <text>{{currentDate}}</text>
+      <view class="calendar-icon">
+        <text class="calendar-icon-text">📅</text>
+      </view>
+    </view>
+  </view>
+  
+  <view class="today-calories">
+    <text>当日摄入: {{todayCalories}} 卡路里</text>
+    
+    <view class="calories-details" wx:if="{{todayCalories > 0}}">
+      <view class="calories-breakdown">
+        <block wx:for="{{getTodayCaloriesBreakdown()}}" wx:key="*this">
+          <view class="meal-calories-item">{{item}}</view>
+        </block>
+      </view>
+    </view>
+  </view>
+  
+  <view class="records-list" wx:if="{{!isEmpty}}">
+    <view class="record-item" wx:for="{{records}}" wx:key="id" bindtap="viewRecordDetail" data-index="{{index}}">
+      <view class="meal-indicator meal-indicator-{{item.mealType}}"></view>
+      <view class="meal-info">
+        <view class="meal-type">{{getMealTypeText(item.mealType || 1)}}</view>
+        <view class="food-name">{{item.remark || getTopFoodNames(item.foods)}}</view>
+      </view>
+      <view class="record-calories">
+        <text class="calories-value">{{item.totalCalories}}</text>
+        <text class="calories-unit">卡路里</text>
+      </view>
+      <view class="delete-btn" catchtap="deleteRecord" data-index="{{index}}">
+        <text class="delete-icon-text">🗑️</text>
+      </view>
+    </view>
+  </view>
+  
+  <view class="empty-records" wx:if="{{isEmpty}}">
+    <image src="/images/empty_record.png" mode="aspectFit"></image>
+    <text>暂无记录</text>
+    <button class="add-record-btn" bindtap="goToRecord">添加记录</button>
+  </view>
+  
+  <van-calendar
+    show="{{showCalendar}}"
+    bind:close="onCloseCalendar"
+    bind:confirm="onSelectDate"
+    color="{{calendarConfig.color}}"
+    round="{{calendarConfig.round}}"
+  />
+</view>

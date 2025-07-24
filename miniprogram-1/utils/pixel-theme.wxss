@@ -1,0 +1,199 @@
+/**
+ * @file pixel-theme.wxss
+ * @description 像素风格主题样式
+ */
+
+/* 像素字体 */
+@font-face {
+  font-family: 'PixelFont';
+  src: url('data:font/ttf;charset=utf-8;base64,..'); /* 实际项目中需要替换为真实的像素字体 */
+}
+
+/* 像素主题色 */
+.pixel-theme {
+  /* 主色调 */
+  --pixel-primary: #667eea;
+  --pixel-primary-light: #9896f0;
+  --pixel-primary-dark: #764ba2;
+  
+  /* 辅助色 */
+  --pixel-secondary: #764ba2;
+  --pixel-secondary-light: #9896f0;
+  --pixel-secondary-dark: #5a3d79;
+  
+  /* 中性色 */
+  --pixel-black: #1e1e28;
+  --pixel-gray-dark: #3c3c4c;
+  --pixel-gray: #7e7e8f;
+  --pixel-gray-light: #bcbccc;
+  --pixel-white: #f8f8ff;
+  
+  /* 功能色 */
+  --pixel-success: #34c759;
+  --pixel-warning: #ffcc00;
+  --pixel-error: #ff3b30;
+  --pixel-info: #5ac8fa;
+  
+  /* 背景色 */
+  --pixel-bg-primary: #f8f8ff;
+  --pixel-bg-secondary: #eaeaef;
+  
+  /* 字体大小 */
+  --pixel-font-xs: 20rpx;
+  --pixel-font-sm: 24rpx;
+  --pixel-font-md: 28rpx;
+  --pixel-font-lg: 32rpx;
+  --pixel-font-xl: 40rpx;
+}
+
+/* 像素边框样式 */
+.pixel-border {
+  position: relative;
+  padding: 8rpx;
+  box-shadow: 
+    -4rpx 0 0 0 var(--pixel-black),
+    4rpx 0 0 0 var(--pixel-black),
+    0 -4rpx 0 0 var(--pixel-black),
+    0 4rpx 0 0 var(--pixel-black);
+  image-rendering: pixelated;
+}
+
+/* 像素边框增强效果 */
+.pixel-border::before {
+  content: "";
+  position: absolute;
+  top: -8rpx;
+  left: -8rpx;
+  right: -8rpx;
+  bottom: -8rpx;
+  border: 4rpx solid var(--pixel-black);
+  z-index: -1;
+  image-rendering: pixelated;
+}
+
+/* 像素按钮 */
+.pixel-btn {
+  border: none;
+  padding: 16rpx 32rpx;
+  background-color: var(--pixel-primary);
+  color: var(--pixel-white);
+  font-family: 'PixelFont', sans-serif;
+  font-size: var(--pixel-font-md);
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  image-rendering: pixelated;
+  box-shadow: 
+    0 6rpx 0 0 var(--pixel-primary-dark),
+    4rpx 0 0 0 var(--pixel-black),
+    -4rpx 0 0 0 var(--pixel-black),
+    0 -4rpx 0 0 var(--pixel-black),
+    0 10rpx 0 0 var(--pixel-black);
+  transition: all 0.1s;
+}
+
+.pixel-btn:active {
+  transform: translateY(6rpx);
+  box-shadow: 
+    0 0rpx 0 0 var(--pixel-primary-dark),
+    4rpx 0 0 0 var(--pixel-black),
+    -4rpx 0 0 0 var(--pixel-black),
+    0 -4rpx 0 0 var(--pixel-black),
+    0 4rpx 0 0 var(--pixel-black);
+}
+
+/* 像素卡片 */
+.pixel-card {
+  background-color: var(--pixel-white);
+  padding: 24rpx;
+  border: 8rpx solid var(--pixel-black);
+  box-shadow: 8rpx 8rpx 0 0 var(--pixel-black);
+  image-rendering: pixelated;
+  margin-bottom: 24rpx;
+}
+
+/* 像素图标容器 */
+.pixel-icon-container {
+  width: 64rpx;
+  height: 64rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--pixel-primary);
+  border: 4rpx solid var(--pixel-black);
+  color: var(--pixel-white);
+  image-rendering: pixelated;
+}
+
+/* 像素头像 */
+.pixel-avatar {
+  width: 96rpx;
+  height: 96rpx;
+  border: 6rpx solid var(--pixel-black);
+  overflow: hidden;
+  image-rendering: pixelated;
+}
+
+/* 像素进度条 */
+.pixel-progress-bg {
+  height: 24rpx;
+  background-color: var(--pixel-gray-light);
+  position: relative;
+  border: 4rpx solid var(--pixel-black);
+  overflow: hidden;
+  image-rendering: pixelated;
+}
+
+.pixel-progress-fill {
+  height: 100%;
+  background-color: var(--pixel-primary);
+  image-rendering: pixelated;
+}
+
+/* 像素输入框 */
+.pixel-input {
+  border: 4rpx solid var(--pixel-black);
+  padding: 16rpx;
+  background-color: var(--pixel-white);
+  font-family: 'PixelFont', sans-serif;
+  font-size: var(--pixel-font-md);
+  color: var(--pixel-black);
+  box-shadow: 4rpx 4rpx 0 0 var(--pixel-black);
+  image-rendering: pixelated;
+}
+
+/* 像素标签 */
+.pixel-tag {
+  display: inline-block;
+  padding: 4rpx 12rpx;
+  border: 3rpx solid var(--pixel-black);
+  background-color: var(--pixel-primary-light);
+  color: var(--pixel-white);
+  font-family: 'PixelFont', sans-serif;
+  font-size: var(--pixel-font-xs);
+  image-rendering: pixelated;
+}
+
+/* 像素分割线 */
+.pixel-divider {
+  height: 8rpx;
+  background: repeating-linear-gradient(
+    to right,
+    var(--pixel-black) 0,
+    var(--pixel-black) 8rpx,
+    transparent 8rpx,
+    transparent 16rpx
+  );
+  margin: 24rpx 0;
+  image-rendering: pixelated;
+}
+
+/* 全局样式覆盖 */
+page {
+  font-family: 'PixelFont', sans-serif;
+  image-rendering: pixelated;
+  background-color: var(--pixel-bg-primary);
+  color: var(--pixel-black);
+} 

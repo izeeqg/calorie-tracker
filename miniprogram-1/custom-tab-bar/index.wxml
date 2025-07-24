@@ -1,0 +1,28 @@
+<!-- custom-tab-bar/index.wxml -->
+<view class="custom-tabbar">
+  <view 
+    class="tabbar-item {{index === active ? 'active' : ''}}" 
+    wx:for="{{list}}" 
+    wx:key="index" 
+    data-index="{{index}}"
+    bindtap="onChange"
+  >
+    <view class="circle-icon {{index === active ? 'active-circle' : ''}} {{index === 1 ? 'center-button' : ''}}">
+      <block wx:if="{{index === 1}}">
+        <view class="camera-icon-container">
+          <!-- 现代风格照相机图标 -->
+          <van-icon name="photograph" size="40rpx" color="{{index === active ? '#ffffff' : '#333333'}}" class="icon" />
+        </view>
+      </block>
+      <block wx:elif="{{index === 0}}">
+        <!-- 现代风格历史记录图标 -->
+        <van-icon name="clock" size="40rpx" color="{{index === active ? '#ffffff' : '#333333'}}" class="icon" />
+      </block>
+      <block wx:else>
+        <!-- 现代风格用户图标 -->
+        <van-icon name="manager" size="40rpx" color="{{index === active ? '#ffffff' : '#333333'}}" class="icon" />
+      </block>
+    </view>
+    <text class="tabbar-text" wx:if="{{index !== 1}}">{{item.text}}</text>
+  </view>
+</view> 

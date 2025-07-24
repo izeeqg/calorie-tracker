@@ -1,0 +1,49 @@
+<!--识别结果页面-->
+<view class="container">
+  <view class="result-header">
+    <view class="title">识别结果</view>
+  </view>
+  
+  <view class="result-content">
+    <view wx:if="{{foods && foods.length > 0}}">
+      <view class="selection-tip">
+        <text class="tip-text">请选择要记录的食物（可多选）：</text>
+      </view>
+      <view class="food-list">
+        <block wx:for="{{foods}}" wx:key="index">
+          <view class="food-item {{item.selected ? 'selected' : ''}}" bindtap="toggleSelectFood" data-index="{{index}}">
+            <view class="food-info">
+              <view class="food-name">{{item.name}}</view>
+              <view class="food-calories">{{item.calories}} 千卡/100克</view>
+              <view class="food-probability">置信度: {{item.probability}}%</view>
+            </view>
+            <view class="food-selected">
+              <icon wx:if="{{item.selected}}" type="success" size="20" color="#07c160"></icon>
+              <view wx:else class="unselected-icon"></view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+    <view wx:else class="no-result">
+      <text>未检测到食物</text>
+    </view>
+  </view>
+  
+  <view class="form-section">
+    <view class="form-item">
+      <view class="form-label">餐食类型</view>
+      <picker bindchange="changeMealType" value="{{selectedMealTypeIndex}}" range-key="name" range="{{mealTypes}}">
+        <view class="picker-container">
+          <view class="picker-text">{{selectedMealTypeName}}</view>
+          <view class="picker-arrow">▼</view>
+        </view>
+      </picker>
+    </view>
+  </view>
+  
+  <view class="button-group">
+    <button class="primary-button" bindtap="saveRecord" loading="{{isLoading}}">保存记录</button>
+    <button class="secondary-button" bindtap="reRecognize">重新识别</button>
+  </view>
+</view> 

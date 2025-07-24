@@ -1,0 +1,197 @@
+/* custom-tab-bar/index.wxss */
+.van-tabbar-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.custom-tabbar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10rpx 0;
+}
+
+.custom-tabbar-text {
+  font-size: 22rpx;
+  line-height: 1;
+  margin-top: 6rpx;
+}
+
+.custom-tabbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  height: 110rpx;
+  background-color: #ffffff;
+  border-top: 1rpx solid #f0f0f0;
+  padding-bottom: env(safe-area-inset-bottom);
+  box-shadow: 0 -2rpx 10rpx rgba(0, 0, 0, 0.05);
+  z-index: 999;
+}
+
+.tabbar-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #999999;
+  position: relative;
+  padding: 10rpx 0;
+  font-size: 22rpx;
+}
+
+.tabbar-item.active {
+  color: #FF5A5F;
+}
+
+/* Vant图标颜色 */
+.tabbar-item .van-icon {
+  display: block;
+  color: #999999;
+}
+
+/* 图标样式 */
+.circle-icon {
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 24rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 6rpx;
+  background-color: #f5f5f5;
+  transition: all 0.3s ease;
+}
+
+.active-circle {
+  background-color: #FF5A5F;
+}
+
+.icon {
+  transition: all 0.3s ease;
+}
+
+/* 中间按钮 */
+.center-button {
+  width: 96rpx;
+  height: 96rpx;
+  margin-top: -30rpx;
+  background-color: #FF5A5F;
+  border-radius: 48rpx;
+  box-shadow: 0 4rpx 12rpx rgba(255, 90, 95, 0.3);
+  position: relative;
+}
+
+.center-button .icon {
+  width: 48rpx;
+  height: 48rpx;
+  color: #ffffff !important;
+}
+
+/* 照相机图标容器 */
+.camera-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* 照相机按钮特效 */
+.center-button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 48rpx;
+  top: 0;
+  left: 0;
+  animation: pulse 1.5s infinite ease-in-out;
+  background-color: rgba(255, 90, 95, 0.2);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.tabbar-text {
+  font-size: 22rpx;
+  line-height: 1;
+  margin-top: 4rpx;
+}
+
+/* 图标样式 */
+.tabbar-item .icon {
+  color: #999999;
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.tabbar-item.active .icon {
+  color: #FF5A5F;
+}
+
+/* 自定义Pixel图标样式 */
+.tabbar-item .pixel-icon {
+  color: #7e7e8f;
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.tabbar-item.active .pixel-icon {
+  color: #ffffff;
+}
+
+/* 自定义图标 */
+.van-icon-records::before {
+  content: "\e640";
+}
+
+.van-icon-camera::before {
+  content: "\e665";
+}
+
+.van-icon-photograph::before {
+  content: "\e6c9";
+}
+
+.van-icon-manager::before {
+  content: "\e610";
+}
+
+.tabbar-item.active .van-icon-records,
+.tabbar-item.active .van-icon-camera,
+.tabbar-item.active .van-icon-manager {
+  color: #ffffff;
+}
+
+/* 支持深色模式 */
+@media (prefers-color-scheme: dark) {
+  .custom-tabbar {
+    background-color: #1a1a1a;
+    border-top: 1rpx solid #333333;
+    box-shadow: 0 -2rpx 10rpx rgba(0, 0, 0, 0.2);
+  }
+
+  .circle-icon {
+    background-color: #333333;
+  }
+}

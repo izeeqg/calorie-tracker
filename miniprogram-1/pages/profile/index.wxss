@@ -1,0 +1,432 @@
+/* pages/profile/index.wxss */
+
+/* 跳跃方块加载组件 - From Uiverse.io by alexruix */
+.custom-loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 9999;
+}
+
+.loading-block {
+  width: 96rpx;
+  height: 96rpx;
+  margin: auto;
+  position: relative;
+}
+
+.loading-block:before {
+  content: '';
+  width: 96rpx;
+  height: 10rpx;
+  background: rgba(255, 182, 193, 0.4);
+  position: absolute;
+  top: 120rpx;
+  left: 0;
+  border-radius: 50%;
+  animation: shadow324 0.5s linear infinite;
+}
+
+.loading-block:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: #FFB6C1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 8rpx;
+  animation: jump7456 0.5s linear infinite;
+}
+
+@keyframes jump7456 {
+  15% {
+    border-bottom-right-radius: 6rpx;
+  }
+  25% {
+    transform: translateY(18rpx) rotate(22.5deg);
+  }
+  50% {
+    transform: translateY(36rpx) scale(1, .9) rotate(45deg);
+    border-bottom-right-radius: 80rpx;
+  }
+  75% {
+    transform: translateY(18rpx) rotate(67.5deg);
+  }
+  100% {
+    transform: translateY(0) rotate(90deg);
+  }
+}
+
+@keyframes shadow324 {
+  0%, 100% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.2, 1);
+  }
+}
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--background-color);
+  padding-bottom: calc(env(safe-area-inset-bottom) + 100rpx);
+}
+
+/* 顶部导航栏 */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120rpx;
+  background-color: #FF5A5F;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  padding-top: env(safe-area-inset-top);
+  box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+.header-title {
+  font-size: 40rpx;
+  font-weight: bold;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+.content {
+  flex: 1;
+  padding: 30rpx;
+  margin-top: 160rpx;
+}
+
+/* 用户信息卡片 */
+.user-info-card {
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  padding: 40rpx 30rpx;
+  margin-bottom: 30rpx;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.08);
+  min-height: auto;
+  writing-mode: horizontal-tb;
+  text-orientation: mixed;
+  direction: ltr;
+}
+
+.avatar-container {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-bottom: 20rpx;
+  writing-mode: horizontal-tb;
+  text-orientation: mixed;
+  direction: ltr;
+}
+
+/* 头像容器 - 修改为按钮样式 */
+.avatar-wrapper {
+  width: 70rpx !important;
+  height: 70rpx !important;
+  min-width: 70rpx !important;
+  min-height: 70rpx !important;
+  max-width: 70rpx !important;
+  max-height: 70rpx !important;
+  border-radius: 35rpx !important;
+  overflow: visible;
+  margin-right: 80rpx;
+  background-color: #f5f5f5;
+  border: 2rpx solid #FF5A5F !important;
+  padding: 0 !important;
+  position: relative;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-sizing: border-box !important;
+  line-height: 1 !important;
+  transition: all 0.3s ease;
+}
+
+.avatar-wrapper:active {
+  transform: scale(0.95);
+  box-shadow: 0 2rpx 8rpx rgba(255, 90, 95, 0.3);
+}
+
+.avatar-wrapper::after {
+  border: none !important;
+  background: none !important;
+  content: none !important;
+}
+
+.avatar-wrapper::before {
+  border: none !important;
+  background: none !important;
+  content: none !important;
+}
+
+.avatar {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 35rpx !important;
+  object-fit: cover !important;
+  display: block !important;
+  flex-shrink: 0;
+  box-sizing: border-box !important;
+}
+
+/* 游客头像登录提示 */
+.login-hint {
+  position: absolute;
+  bottom: -30rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #FF5A5F;
+  color: white;
+  font-size: 20rpx;
+  padding: 4rpx 8rpx;
+  border-radius: 8rpx;
+  white-space: nowrap;
+  box-shadow: 0 2rpx 6rpx rgba(255, 90, 95, 0.3);
+  z-index: 10;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.8;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.05);
+  }
+  100% {
+    opacity: 0.8;
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+.user-detail {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 24rpx;
+  writing-mode: horizontal-tb;
+  text-orientation: mixed;
+  direction: ltr;
+}
+
+.username {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 12rpx;
+  writing-mode: horizontal-tb;
+  text-orientation: mixed;
+  direction: ltr;
+  display: inline-block;
+  white-space: nowrap;
+  letter-spacing: 1rpx;
+}
+
+.user-desc {
+  font-size: 26rpx;
+  color: #999999;
+  line-height: 1.6;
+  writing-mode: horizontal-tb;
+  text-orientation: mixed;
+  direction: ltr;
+  display: block;
+  letter-spacing: 0.5rpx;
+}
+
+/* 登录和更新按钮区域 */
+.login-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.guest-tip {
+  background-color: rgba(255, 107, 138, 0.1);
+  border-radius: 16rpx;
+  padding: 30rpx 24rpx;
+  margin-bottom: 24rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+  border: 1rpx solid rgba(255, 107, 138, 0.2);
+  box-sizing: border-box;
+}
+
+.guest-text {
+  font-size: 30rpx;
+  color: #ff6b8a;
+  font-weight: 500;
+  text-align: center;
+  writing-mode: horizontal-tb;
+  text-orientation: mixed;
+  direction: ltr;
+  display: block;
+  letter-spacing: 1rpx;
+  margin-bottom: 4rpx;
+}
+
+.guest-desc {
+  font-size: 26rpx;
+  color: #999;
+  text-align: center;
+  line-height: 1.6;
+  writing-mode: horizontal-tb;
+  text-orientation: mixed;
+  direction: ltr;
+  display: block;
+  letter-spacing: 0.5rpx;
+}
+
+.login-btn {
+  background-color: #FF5A5F;
+  color: white;
+  border: none;
+  border-radius: 24rpx;
+  padding: 20rpx 40rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  letter-spacing: 1rpx;
+  width: 100%;
+  max-width: 400rpx;
+}
+
+.login-btn::after {
+  border: none;
+}
+
+/* 卡片区域通用样式 */
+.card-section {
+  margin-bottom: 40rpx;
+}
+
+.section-title {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 24rpx;
+  padding-left: 16rpx;
+  position: relative;
+  letter-spacing: 1rpx;
+}
+
+.section-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 6rpx;
+  height: 32rpx;
+  background-color: #FF5A5F;
+  transform: translateY(-50%);
+  border-radius: 3rpx;
+}
+
+/* 健康数据卡片 */
+.data-card {
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  padding: 40rpx 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.08);
+}
+
+.data-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.data-value {
+  font-size: 42rpx;
+  font-weight: bold;
+  color: #FF5A5F;
+  margin-bottom: 12rpx;
+  letter-spacing: 1rpx;
+}
+
+.data-label {
+  font-size: 26rpx;
+  color: #999999;
+  text-align: center;
+  letter-spacing: 0.5rpx;
+  line-height: 1.4;
+}
+
+.divider {
+  width: 2rpx;
+  height: 80rpx;
+  background-color: #f0f0f0;
+}
+
+/* 设置列表 */
+.settings-list {
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  overflow: hidden;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.08);
+}
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 36rpx 30rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.setting-item:last-child {
+  border-bottom: none;
+}
+
+.setting-left {
+  display: flex;
+  align-items: center;
+}
+
+.setting-icon {
+  margin-right: 20rpx;
+}
+
+.setting-text {
+  font-size: 32rpx;
+  color: #333333;
+  letter-spacing: 0.5rpx;
+}
+
+
+
+/* 版本信息 */
+.version-info {
+  text-align: center;
+  padding: 60rpx 0 30rpx;
+  font-size: 26rpx;
+  color: #999999;
+}
+

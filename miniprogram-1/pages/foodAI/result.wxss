@@ -1,0 +1,231 @@
+/* 识别结果页面样式 */
+.container {
+  padding: 20rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f8f8f8;
+}
+
+.result-header {
+  padding: 20rpx 0;
+  text-align: center;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 移除了图片容器相关样式 */
+
+.selection-tip {
+  padding: 15rpx 20rpx;
+  background-color: #f0f8ff;
+  border-left: 6rpx solid #07c160;
+  margin-bottom: 15rpx;
+  border-radius: 8rpx;
+}
+
+.tip-text {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.result-content {
+  background-color: #fff;
+  padding: 20rpx;
+  border-radius: 12rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.food-list {
+  width: 100%;
+}
+
+.food-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+  position: relative;
+}
+
+.food-item.selected {
+  background-color: #e6f7ee;
+}
+
+.food-info {
+  flex: 1;
+}
+
+.food-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.food-calories {
+  font-size: 28rpx;
+  color: #ff6b6b;
+  margin-bottom: 6rpx;
+}
+
+.food-probability {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.food-selected {
+  width: 40rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.unselected-icon {
+  width: 20rpx;
+  height: 20rpx;
+  border: 2rpx solid #ccc;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.no-result {
+  width: 100%;
+  height: 200rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  color: #999;
+}
+
+.form-section {
+  background-color: #fff;
+  padding: 20rpx;
+  border-radius: 12rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.form-item {
+  display: flex;
+  align-items: center;
+  padding: 24rpx 0;
+  border-bottom: none;
+  gap: 20rpx;
+}
+
+.form-item:last-child {
+  border-bottom: none;
+}
+
+.form-label {
+  width: 160rpx;
+  font-size: 30rpx;
+  color: #495057;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.picker, input {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333;
+}
+
+/* 新的picker容器样式 */
+.picker-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 24rpx;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border: 2rpx solid #e9ecef;
+  border-radius: 16rpx;
+  min-height: 80rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.picker-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(7, 193, 96, 0.05) 0%, rgba(7, 193, 96, 0.02) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.picker-container:active {
+  transform: translateY(-2rpx);
+  box-shadow: 0 8rpx 20rpx rgba(7, 193, 96, 0.15);
+  border-color: #07c160;
+}
+
+.picker-container:active::before {
+  opacity: 1;
+}
+
+.picker-text {
+  flex: 1;
+  font-size: 30rpx;
+  color: #2c3e50;
+  font-weight: 600;
+  letter-spacing: 0.5rpx;
+}
+
+.picker-arrow {
+  font-size: 24rpx;
+  color: #07c160;
+  margin-left: 20rpx;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.picker-container:active .picker-arrow {
+  transform: rotate(180deg);
+  color: #06a84b;
+}
+
+.button-group {
+  margin-top: 40rpx;
+  padding: 0 20rpx;
+}
+
+.primary-button {
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  background-color: #07c160;
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 45rpx;
+  margin-bottom: 20rpx;
+}
+
+.secondary-button {
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  background-color: #f5f5f5;
+  color: #666;
+  font-size: 32rpx;
+  border-radius: 45rpx;
+  border: 1rpx solid #ddd;
+} 

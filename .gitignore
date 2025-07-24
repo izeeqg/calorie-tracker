@@ -1,0 +1,78 @@
+# 操作系统相关
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# 编辑器相关
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 日志文件
+*.log
+logs/
+
+# 临时文件
+*.tmp
+*.temp
+
+# 后端相关 (Java/Spring Boot)
+houduan/*/target/
+houduan/*/*.jar
+houduan/*/*.war
+houduan/*/*.ear
+houduan/*/*.class
+houduan/*/mvnw
+houduan/*/mvnw.cmd
+houduan/*/.mvn/
+houduan/*/HELP.md
+
+# Maven
+houduan/*/.m2/
+
+# 配置文件中的敏感信息
+houduan/*/src/main/resources/application-prod.yml
+houduan/*/src/main/resources/application-dev.yml
+
+# 上传文件目录
+houduan/*/uploads/
+houduan/*/temp/
+
+# 前端相关 (微信小程序)
+miniprogram-1/miniprogram_npm/
+miniprogram-1/node_modules/
+
+# 微信开发者工具相关
+miniprogram-1/.tea/
+miniprogram-1/project.config.json
+miniprogram-1/project.private.config.json
+
+# 构建产物
+miniprogram-1/dist/
+miniprogram-1/build/
+
+# 依赖相关
+package-lock.json
+yarn.lock
+
+# 环境配置
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 数据库相关
+*.sql.backup
+*.db
+*.sqlite
+*.sqlite3
+
+# Docker相关
+docker-compose.override.yml 

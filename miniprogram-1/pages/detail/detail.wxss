@@ -1,0 +1,465 @@
+/**detail.wxss**/
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #F8F8FF;
+  padding-bottom: env(safe-area-inset-bottom);
+  font-family: 'PixelFont', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  image-rendering: pixelated;
+}
+
+.nav-bar {
+  background-color: #FF5A5F !important;
+  border-bottom: 4rpx solid #1E1E28 !important;
+  box-shadow: 0 4rpx 0 0 #1E1E28;
+}
+
+.content {
+  flex: 1;
+  padding: 30rpx;
+  padding-top: 94rpx;
+}
+
+.food-card {
+  margin-bottom: 20rpx;
+}
+
+.nutrition-info {
+  padding: 20rpx;
+}
+
+.nutrition-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #323233;
+  margin-bottom: 16rpx;
+  padding-left: 16rpx;
+  border-left: 4rpx solid #4CAF50;
+}
+
+.nutrition-item {
+  margin-bottom: 8rpx;
+}
+
+.record-image {
+  margin-bottom: 20rpx;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: 8rpx 8rpx 0 0 rgba(0, 0, 0, 0.1);
+}
+
+.record-info-card {
+  margin-bottom: 20rpx;
+}
+
+.calories-value {
+  color: #ee0a24 !important;
+  font-weight: bold !important;
+}
+
+.foods-list-card {
+  margin-bottom: 30rpx;
+}
+
+.food-list-item {
+  padding: 20rpx 0;
+  border-bottom: 2rpx dashed #BCBCCC;
+}
+
+.food-list-item:last-child {
+  border-bottom: none;
+}
+
+.food-list-name {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #1E1E28;
+  margin-bottom: 10rpx;
+  font-family: 'PixelFont', sans-serif;
+}
+
+.food-list-meta {
+  margin-bottom: 8rpx;
+}
+
+.food-list-weight {
+  font-size: 24rpx;
+  color: #7E7E8F;
+  margin-right: 16rpx;
+  font-family: 'PixelFont', sans-serif;
+}
+
+.confidence-tag {
+  font-size: 20rpx;
+  height: 28rpx;
+  line-height: 28rpx;
+  padding: 0 8rpx;
+  color: #FFFFFF;
+  background-color: #34C759 !important;
+  border: 2rpx solid #1E1E28 !important;
+  border-radius: 0 !important;
+}
+
+.food-list-calories {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #FF5A5F;
+  text-shadow: 1rpx 1rpx 0 #1E1E28;
+  font-family: 'PixelFont', sans-serif;
+}
+
+.share-section {
+  margin-top: 60rpx;
+  margin-bottom: 30rpx;
+}
+
+.share-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 30rpx;
+  text-align: center;
+}
+
+.share-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.share-button {
+  height: 88rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  background-color: #FF5A5F !important;
+  border: 4rpx solid #1E1E28 !important;
+  border-radius: 0 !important;
+  box-shadow: 6rpx 6rpx 0 0 #1E1E28 !important;
+  transition: transform 0.1s steps(2), box-shadow 0.1s steps(2) !important;
+}
+
+.share-button:active {
+  transform: translate(4rpx, 4rpx);
+  box-shadow: 2rpx 2rpx 0 0 #1E1E28 !important;
+}
+
+.timeline-button {
+  height: 88rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  background-color: #4CAF50 !important;
+  border: 4rpx solid #1E1E28 !important;
+  border-radius: 0 !important;
+  box-shadow: 6rpx 6rpx 0 0 #1E1E28 !important;
+  transition: transform 0.1s steps(2), box-shadow 0.1s steps(2) !important;
+}
+
+.timeline-button:active {
+  transform: translate(4rpx, 4rpx);
+  box-shadow: 2rpx 2rpx 0 0 #1E1E28 !important;
+}
+
+.share-button .pixel-icon,
+.timeline-button .pixel-icon {
+  margin-right: 8rpx;
+  width: 32rpx;
+  height: 32rpx;
+  color: #FFFFFF;
+}
+
+/* 像素朋友圈图标 */
+.pixel-icon-timeline .pixel-box {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 1rpx;
+  width: 100%;
+  height: 100%;
+}
+
+.pixel-icon-timeline .pixel {
+  background-color: currentColor;
+  border-radius: 1rpx;
+}
+
+.pixel-icon-timeline .pixel-1 {
+  grid-column: 1 / 3;
+  grid-row: 1 / 3;
+}
+
+.pixel-icon-timeline .pixel-2 {
+  grid-column: 3 / 5;
+  grid-row: 1 / 3;
+}
+
+.pixel-icon-timeline .pixel-3 {
+  grid-column: 1 / 3;
+  grid-row: 3 / 5;
+}
+
+.pixel-icon-timeline .pixel-4 {
+  grid-column: 3 / 5;
+  grid-row: 3 / 5;
+}
+
+.header {
+  padding: 30rpx;
+  background: linear-gradient(135deg, #4CAF50, #2E7D32);
+  color: white;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 6rpx 16rpx rgba(0, 0, 0, 0.1);
+}
+
+.back-btn {
+  width: 70rpx;
+  height: 70rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+.back-btn:active {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(0.95);
+}
+
+.back-icon {
+  font-size: 40rpx;
+  font-weight: bold;
+}
+
+.title {
+  flex: 1;
+  font-size: 36rpx;
+  font-weight: bold;
+  text-align: center;
+  margin-right: 70rpx;
+  letter-spacing: 1rpx;
+}
+
+/* 食物详情样式 */
+.food-card {
+  background-color: white;
+  border-radius: 20rpx;
+  padding: 40rpx 30rpx;
+  box-shadow: 0 10rpx 25rpx rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.food-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 8rpx;
+  background: linear-gradient(to right, #4CAF50, #8BC34A);
+}
+
+.food-name {
+  font-size: 44rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 40rpx;
+  text-align: center;
+  position: relative;
+  padding-bottom: 20rpx;
+}
+
+.food-name::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80rpx;
+  height: 4rpx;
+  background-color: #e0e0e0;
+  border-radius: 2rpx;
+}
+
+.food-detail-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 24rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.detail-label {
+  font-size: 30rpx;
+  color: #757575;
+  display: flex;
+  align-items: center;
+}
+
+.detail-value {
+  font-size: 30rpx;
+  color: #333;
+  font-weight: 600;
+}
+
+.food-weight {
+  font-size: 26rpx;
+  color: #9e9e9e;
+  background-color: #f5f5f5;
+  padding: 4rpx 12rpx;
+  border-radius: 10rpx;
+  margin-right: 15rpx;
+}
+
+.food-calories {
+  font-size: 26rpx;
+  color: #E53935;
+  font-weight: 500;
+}
+
+/* 食物详情卡片 */
+.food-header {
+  padding: 40rpx 30rpx;
+  margin-bottom: 30rpx;
+  background-color: #FFFFFF;
+  border-radius: 0;
+  border: 4rpx solid #1E1E28;
+  box-shadow: 8rpx 8rpx 0 0 #1E1E28;
+}
+
+.food-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #1E1E28;
+  margin-bottom: 20rpx;
+  text-shadow: 2rpx 2rpx 0 #BCBCCC;
+  font-family: 'PixelFont', sans-serif;
+}
+
+.food-calories {
+  display: flex;
+  align-items: baseline;
+}
+
+.calories-value {
+  font-size: 44rpx;
+  font-weight: bold;
+  color: #FF5A5F;
+  margin-right: 10rpx;
+  text-shadow: 2rpx 2rpx 0 #1E1E28;
+  font-family: 'PixelFont', sans-serif;
+}
+
+.calories-unit {
+  font-size: 28rpx;
+  color: #7E7E8F;
+  font-family: 'PixelFont', sans-serif;
+}
+
+/* 食物信息卡片 */
+.food-info-card, .nutrition-card, .record-info-card, .foods-list-card, .record-image-card {
+  background-color: #FFFFFF;
+  border-radius: 0;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  border: 4rpx solid #1E1E28;
+  box-shadow: 8rpx 8rpx 0 0 #1E1E28;
+}
+
+.info-item {
+  padding: 16rpx 0;
+  border-bottom: 2rpx dashed #BCBCCC;
+}
+
+.info-item:last-child {
+  border-bottom: none;
+}
+
+.info-label {
+  font-size: 28rpx;
+  color: #3C3C4C;
+  font-family: 'PixelFont', sans-serif;
+}
+
+.info-icon {
+  margin-right: 10rpx;
+  color: #FF5A5F;
+}
+
+/* 像素风格自定义图标 */
+.info-icon.pixel-icon {
+  width: 40rpx;
+  height: 40rpx;
+  color: #FF5A5F;
+  margin-right: 20rpx;
+}
+
+.info-value {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #1E1E28;
+  text-shadow: 1rpx 1rpx 0 #EAEAEF;
+  font-family: 'PixelFont', sans-serif;
+}
+
+.meal-type {
+  display: flex;
+}
+
+.calories-highlight {
+  color: #FF5A5F;
+  text-shadow: 1rpx 1rpx 0 #1E1E28;
+}
+
+/* 营养成分卡片 */
+.card-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #1E1E28;
+  margin-bottom: 24rpx;
+  text-shadow: 2rpx 2rpx 0 #BCBCCC;
+  font-family: 'PixelFont', sans-serif;
+  position: relative;
+  padding-left: 16rpx;
+}
+
+.card-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 6rpx;
+  height: 30rpx;
+  background-color: #FF5A5F;
+  transform: translateY(-50%);
+  border: 2rpx solid #1E1E28;
+}
+
+.nutrition-item {
+  padding: 16rpx 0;
+  border-bottom: 2rpx dashed #BCBCCC;
+}
+
+.nutrition-item:last-child {
+  border-bottom: none;
+}
+
+.nutrition-label {
+  font-size: 28rpx;
+  color: #3C3C4C;
+  font-family: 'PixelFont', sans-serif;
+}
+
+.nutrition-value {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #1E1E28;
+  font-family: 'PixelFont', sans-serif;
+}
+
+/* 图片样式 */
+.record-image-card .van-image {
+  border: 3rpx solid #1E1E28 !important;
+} 

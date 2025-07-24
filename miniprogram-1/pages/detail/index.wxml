@@ -1,0 +1,77 @@
+<!--pages/detail/index.wxml-->
+<view class="page-container">
+  <!-- 粉色方块加载动画 -->
+  <view class="custom-loading" wx:if="{{loading}}">
+    <view class="loading-block"></view>
+  </view>
+  
+  <view class="header">
+    <view class="back" bindtap="goBack">返回</view>
+    <view class="title">{{type === 'food' ? '食物详情' : '记录详情'}}</view>
+  </view>
+  
+  <view class="content">
+    <!-- 食物详情 -->
+    <block wx:if="{{type === 'food'}}">
+      <view class="food-header card">
+        <view class="food-title">{{record.name}}</view>
+        <view class="food-calories">
+          <text class="calories-value">{{record.calories}}</text>
+          <text class="calories-unit">千卡</text>
+        </view>
+      </view>
+    </block>
+    
+    <!-- 记录详情 -->
+    <block wx:elif="{{type === 'record'}}">
+      <view class="record-image-card card" wx:if="{{record.imageUrl || record.image}}">
+        <image class="record-image" src="{{record.imageUrl || record.image}}" mode="aspectFill" 
+          binderror="handleImageError" lazy-load="true"></image>
+      </view>
+      
+      <view class="record-info-card card">
+        <view class="info-item">
+          <view class="info-label">记录时间</view>
+          <view class="info-value">{{formattedDate}}</view>
+        </view>
+        
+        <view class="info-item">
+          <view class="info-label">餐食类型</view>
+          <view class="info-value">{{mealTypeText}}</view>
+        </view>
+        
+        <view class="info-item">
+          <view class="info-label">总卡路里</view>
+          <view class="info-value">{{record.totalCalories || 0}} 千卡</view>
+        </view>
+      </view>
+      
+      <view class="foods-list-card card">
+        <view class="card-title">食物列表 ({{foods.length || 0}}种)</view>
+        
+        <view wx:if="{{!foods || foods.length === 0}}" class="empty-food-list">
+          暂无食物数据
+        </view>
+        
+        <view 
+          class="food-list-item" 
+          wx:for="{{foods}}" 
+          wx:key="index"
+        >
+          <view class="food-list-content">
+            <view class="food-list-left">
+              <view class="food-list-name">{{item.foodName || item.name}}</view>
+              <view class="food-list-meta">
+                <view class="food-list-weight">{{item.portion ? item.portion + 'g' : (item.weight || '100g')}}</view>
+                <view class="food-list-confidence" wx:if="{{item.recognitionConfidence || item.probability}}">
+                  置信度: {{(item.recognitionConfidence || item.probability) * 100 || 0}}%
+                </view>
+              </view>
+            </view>
+            <view class="food-list-calories">{{item.calories || 0}} 千卡</view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

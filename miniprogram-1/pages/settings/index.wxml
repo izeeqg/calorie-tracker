@@ -1,0 +1,117 @@
+<!--pages/settings/index.wxml-->
+<view class="container">
+  <!-- 页面标题 -->
+  <view class="header">
+    <text class="title">应用设置</text>
+  </view>
+
+  <!-- 加载状态 -->
+  <view wx:if="{{loading}}" class="loading-container">
+    <van-loading type="spinner" size="24px" text-size="14px">加载中...</van-loading>
+  </view>
+
+  <!-- 设置内容 -->
+  <view wx:else class="settings-content">
+    
+    <!-- 卡路里目标设置 -->
+    <view class="setting-section">
+      <view class="section-title">
+        <van-icon name="fire" color="#FF5A5F" size="20px" />
+        <text>卡路里目标</text>
+      </view>
+      
+      <view class="setting-item" bindtap="setCalorieTarget">
+        <view class="setting-left">
+          <text class="setting-label">每日目标卡路里</text>
+          <text class="setting-desc">设置您的每日卡路里摄入目标</text>
+        </view>
+        <view class="setting-right">
+          <text class="setting-value">{{settings.targetCalories}} 卡路里</text>
+          <van-icon name="arrow" color="#999" size="16px" />
+        </view>
+      </view>
+    </view>
+
+    <!-- 提醒设置 -->
+    <view class="setting-section">
+      <view class="section-title">
+        <van-icon name="bell" color="#4285F4" size="20px" />
+        <text>提醒设置</text>
+      </view>
+      
+      <view class="setting-item">
+        <view class="setting-left">
+          <text class="setting-label">开启用餐提醒</text>
+          <text class="setting-desc">在设定时间提醒您记录饮食</text>
+        </view>
+        <view class="setting-right">
+          <switch checked="{{settings.reminderEnabled}}" bindchange="toggleReminder" color="#07c160" />
+        </view>
+      </view>
+
+      <!-- 提醒时间设置（仅在开启提醒时显示） -->
+      <view wx:if="{{settings.reminderEnabled}}" class="reminder-times">
+        <view class="setting-item">
+          <view class="setting-left">
+            <text class="setting-label">早餐提醒</text>
+          </view>
+          <view class="setting-right">
+            <picker mode="time" value="{{settings.breakfastReminderTime}}" bindchange="setBreakfastTime">
+              <view class="time-picker">
+                <text>{{settings.breakfastReminderTime}}</text>
+                <van-icon name="arrow" color="#999" size="16px" />
+              </view>
+            </picker>
+          </view>
+        </view>
+
+        <view class="setting-item">
+          <view class="setting-left">
+            <text class="setting-label">午餐提醒</text>
+          </view>
+          <view class="setting-right">
+            <picker mode="time" value="{{settings.lunchReminderTime}}" bindchange="setLunchTime">
+              <view class="time-picker">
+                <text>{{settings.lunchReminderTime}}</text>
+                <van-icon name="arrow" color="#999" size="16px" />
+              </view>
+            </picker>
+          </view>
+        </view>
+
+        <view class="setting-item">
+          <view class="setting-left">
+            <text class="setting-label">晚餐提醒</text>
+          </view>
+          <view class="setting-right">
+            <picker mode="time" value="{{settings.dinnerReminderTime}}" bindchange="setDinnerTime">
+              <view class="time-picker">
+                <text>{{settings.dinnerReminderTime}}</text>
+                <van-icon name="arrow" color="#999" size="16px" />
+              </view>
+            </picker>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 其他设置 -->
+    <view class="setting-section">
+      <view class="section-title">
+        <van-icon name="setting" color="#9C27B0" size="20px" />
+        <text>其他设置</text>
+      </view>
+      
+      <view class="setting-item" bindtap="resetSettings">
+        <view class="setting-left">
+          <text class="setting-label">重置设置</text>
+          <text class="setting-desc">将所有设置恢复为默认值</text>
+        </view>
+        <view class="setting-right">
+          <van-icon name="arrow" color="#999" size="16px" />
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view> 

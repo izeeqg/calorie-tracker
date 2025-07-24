@@ -1,0 +1,109 @@
+<!--pages/profile/index.wxml-->
+<view class="page-container">
+  <!-- 自定义加载动画组件 -->
+  <custom-loading id="custom-loading" show="{{false}}"></custom-loading>
+  <!-- 顶部导航栏 -->
+  <view class="header">
+    <text class="header-title">我的</text>
+  </view>
+  
+  <view class="content">
+    <!-- 用户信息区域 -->
+    <view class="user-info-card">
+      <view class="avatar-container">
+        <!-- 头像按钮 - 根据登录状态决定行为 -->
+        <button 
+          class="avatar-wrapper" 
+          wx:if="{{hasUserInfo}}"
+          open-type="chooseAvatar" 
+          bind:chooseavatar="onChooseAvatar" 
+          catch:error="onAvatarButtonError"
+        >
+          <image class="avatar" src="{{userInfo.avatarUrl || '/images/default-avatar.png'}}" mode="aspectFill" lazy-load="{{false}}" show-menu-by-longpress="{{false}}" binderror="onAvatarError" bindload="onAvatarLoad"></image>
+        </button>
+        
+        <!-- 游客用户点击头像跳转登录 -->
+        <button 
+          class="avatar-wrapper" 
+          wx:else
+          bindtap="navigateToLogin"
+        >
+          <image class="avatar" src="{{userInfo.avatarUrl || '/images/default-avatar.png'}}" mode="aspectFill" lazy-load="{{false}}" show-menu-by-longpress="{{false}}" binderror="onAvatarError" bindload="onAvatarLoad"></image>
+          <view class="login-hint">点击登录</view>
+        </button>
+        <view class="user-detail">
+          <view class="username">{{hasUserInfo ? userInfo.nickName : (userInfo.nickName || '游客用户')}}</view>
+          <view class="user-desc">
+            <text wx:if="{{!hasUserInfo}}">🎯 游客模式 - 点击头像或下方按钮登录获得完整体验</text>
+            <text wx:elif="{{userInfo.avatarUrl && (userInfo.avatarUrl.indexOf('http') === 0 || userInfo.avatarUrl.indexOf('wxfile') === 0)}}">✅ 已使用微信头像</text>
+            <text wx:elif="{{userInfo.avatarUrl && userInfo.avatarUrl.indexOf('/images/') === 0}}">点击头像获取微信头像（首次需要授权）</text>
+            <text wx:else>点击头像选择头像</text>
+          </view>
+        </view>
+      </view>
+      <!-- 登录按钮 -->
+      <view class="login-section" wx:if="{{!hasUserInfo}}">
+        <view class="guest-tip">
+          <text class="guest-text">当前为游客模式，数据仅保存在本地</text>
+          <text class="guest-desc">登录后可同步数据到云端，换设备也不会丢失</text>
+        </view>
+        <button class="login-btn" bindtap="navigateToLogin">微信一键登录</button>
+      </view>
+    </view>
+    
+    <!-- 自定义粉色加载组件 -->
+    <view class="custom-loading" wx:if="{{loading}}">
+      <view class="loading-block"></view>
+    </view>
+    
+    <!-- 健康数据卡片 -->
+    <view class="card-section">
+      <view class="section-title">健康数据</view>
+      <view class="data-card">
+        <view class="data-item">
+          <view class="data-value">{{todayCalories}}</view>
+          <view class="data-label">今日摄入(千卡)</view>
+        </view>
+        <view class="divider"></view>
+        <view class="data-item">
+          <view class="data-value">{{targetCalories}}</view>
+          <view class="data-label">目标摄入(千卡)</view>
+        </view>
+        <view class="divider"></view>
+        <view class="data-item">
+          <view class="data-value">{{recordDays}}</view>
+          <view class="data-label">记录天数</view>
+        </view>
+      </view>
+    </view>
+    
+
+    
+    <!-- 设置区域 -->
+    <view class="card-section">
+      <view class="section-title">应用设置</view>
+      <view class="settings-list">
+        <view class="setting-item" bindtap="setCalorieTarget">
+          <view class="setting-left">
+            <van-icon name="fire" color="#FF5A5F" size="40rpx" class="setting-icon" />
+            <text class="setting-text">设置卡路里目标</text>
+          </view>
+          <van-icon name="arrow" color="#999" size="36rpx" />
+        </view>
+        
+        <view class="setting-item" bindtap="showAbout">
+          <view class="setting-left">
+            <van-icon name="info" color="#9C27B0" size="40rpx" class="setting-icon" />
+            <text class="setting-text">关于应用</text>
+          </view>
+          <van-icon name="arrow" color="#999" size="36rpx" />
+        </view>
+      </view>
+    </view>
+    
+    <!-- 版本信息 -->
+    <view class="version-info">
+      <text>食刻卡路里 v1.0.0</text>
+    </view>
+  </view>
+</view>

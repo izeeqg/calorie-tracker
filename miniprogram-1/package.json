@@ -1,0 +1,15 @@
+{
+  "name": "miniprogram-1",
+  "version": "1.0.0",
+  "description": "## 项目介绍 这是一款微信小程序，可以通过拍照识别食物，自动计算卡路里含量并记录用户的饮食历史。",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vant/weapp": "^1.11.7"
+  }
+}

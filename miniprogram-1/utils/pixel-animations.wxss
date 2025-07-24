@@ -1,0 +1,201 @@
+/**
+ * @file pixel-animations.wxss
+ * @description 像素风格动画集
+ */
+
+/* 进入动画 - 渐显 */
+@keyframes pixel-fade-in {
+  0% { opacity: 0; }
+  25% { opacity: 0.25; }
+  50% { opacity: 0.5; }
+  75% { opacity: 0.75; }
+  100% { opacity: 1; }
+}
+
+.pixel-fade-in {
+  animation: pixel-fade-in 0.3s steps(4) forwards;
+}
+
+/* 进入动画 - 从下滑入 */
+@keyframes pixel-slide-up {
+  0% { transform: translateY(20rpx); opacity: 0; }
+  25% { transform: translateY(15rpx); opacity: 0.25; }
+  50% { transform: translateY(10rpx); opacity: 0.5; }
+  75% { transform: translateY(5rpx); opacity: 0.75; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.pixel-slide-up {
+  animation: pixel-slide-up 0.4s steps(4) forwards;
+}
+
+/* 进入动画 - 从上滑入 */
+@keyframes pixel-slide-down {
+  0% { transform: translateY(-20rpx); opacity: 0; }
+  25% { transform: translateY(-15rpx); opacity: 0.25; }
+  50% { transform: translateY(-10rpx); opacity: 0.5; }
+  75% { transform: translateY(-5rpx); opacity: 0.75; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.pixel-slide-down {
+  animation: pixel-slide-down 0.4s steps(4) forwards;
+}
+
+/* 进入动画 - 从左滑入 */
+@keyframes pixel-slide-right {
+  0% { transform: translateX(-20rpx); opacity: 0; }
+  25% { transform: translateX(-15rpx); opacity: 0.25; }
+  50% { transform: translateX(-10rpx); opacity: 0.5; }
+  75% { transform: translateX(-5rpx); opacity: 0.75; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+.pixel-slide-right {
+  animation: pixel-slide-right 0.4s steps(4) forwards;
+}
+
+/* 进入动画 - 从右滑入 */
+@keyframes pixel-slide-left {
+  0% { transform: translateX(20rpx); opacity: 0; }
+  25% { transform: translateX(15rpx); opacity: 0.25; }
+  50% { transform: translateX(10rpx); opacity: 0.5; }
+  75% { transform: translateX(5rpx); opacity: 0.75; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+.pixel-slide-left {
+  animation: pixel-slide-left 0.4s steps(4) forwards;
+}
+
+/* 进入动画 - 缩放 */
+@keyframes pixel-scale-in {
+  0% { transform: scale(0.8); opacity: 0; }
+  25% { transform: scale(0.85); opacity: 0.25; }
+  50% { transform: scale(0.9); opacity: 0.5; }
+  75% { transform: scale(0.95); opacity: 0.75; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.pixel-scale-in {
+  animation: pixel-scale-in 0.4s steps(4) forwards;
+}
+
+/* 点击效果 */
+@keyframes pixel-click {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+.pixel-click {
+  animation: pixel-click 0.2s steps(2);
+}
+
+/* 按钮压下效果 */
+.pixel-btn-press {
+  transition: transform 0.1s steps(2), box-shadow 0.1s steps(2);
+}
+
+.pixel-btn-press:active {
+  transform: translate(4rpx, 4rpx);
+  box-shadow: 0 0 0 0 var(--pixel-black) !important;
+}
+
+/* 脉冲效果 - 持续动画 */
+@keyframes pixel-pulse-effect {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.pixel-pulse-effect {
+  animation: pixel-pulse-effect 1.5s infinite steps(2);
+}
+
+/* 闪烁效果 - 持续动画 */
+@keyframes pixel-blink-effect {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.pixel-blink-effect {
+  animation: pixel-blink-effect 1s infinite steps(2);
+}
+
+/* 页面切换效果 */
+.pixel-page-transition {
+  transition: opacity 0.3s steps(3), transform 0.3s steps(3);
+}
+
+.pixel-page-enter {
+  opacity: 0;
+  transform: translateY(10rpx);
+}
+
+.pixel-page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 列表项动画延迟 */
+.pixel-list-item:nth-child(1) { animation-delay: 0s; }
+.pixel-list-item:nth-child(2) { animation-delay: 0.05s; }
+.pixel-list-item:nth-child(3) { animation-delay: 0.1s; }
+.pixel-list-item:nth-child(4) { animation-delay: 0.15s; }
+.pixel-list-item:nth-child(5) { animation-delay: 0.2s; }
+.pixel-list-item:nth-child(6) { animation-delay: 0.25s; }
+.pixel-list-item:nth-child(7) { animation-delay: 0.3s; }
+.pixel-list-item:nth-child(8) { animation-delay: 0.35s; }
+.pixel-list-item:nth-child(9) { animation-delay: 0.4s; }
+.pixel-list-item:nth-child(10) { animation-delay: 0.45s; }
+
+/* 像素加载动画 */
+.pixel-loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20rpx;
+}
+
+@keyframes pixel-loading-dot {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+.pixel-loading-dot {
+  width: 16rpx;
+  height: 16rpx;
+  background-color: var(--pixel-primary);
+  margin: 0 8rpx;
+  border: 2rpx solid var(--pixel-black);
+}
+
+.pixel-loading-dot:nth-child(1) {
+  animation: pixel-loading-dot 1s infinite steps(2);
+  animation-delay: 0s;
+}
+
+.pixel-loading-dot:nth-child(2) {
+  animation: pixel-loading-dot 1s infinite steps(2);
+  animation-delay: 0.1s;
+}
+
+.pixel-loading-dot:nth-child(3) {
+  animation: pixel-loading-dot 1s infinite steps(2);
+  animation-delay: 0.2s;
+}
+
+/* 下拉刷新动画 */
+@keyframes pixel-refresh-rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.pixel-refresh-icon {
+  width: 40rpx;
+  height: 40rpx;
+  border: 4rpx solid var(--pixel-primary);
+  border-top-color: transparent;
+  animation: pixel-refresh-rotate 1s infinite steps(8);
+} 

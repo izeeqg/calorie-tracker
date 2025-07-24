@@ -1,0 +1,150 @@
+<!--index.wxml-->
+<view class="page-container">
+  <!-- 自定义加载动画组件 -->
+  <custom-loading id="custom-loading" show="{{false}}"></custom-loading>
+  <!-- 顶部导航栏 -->
+  <view class="header">
+    <text class="header-title">食刻卡路里</text>
+  </view>
+  
+  <view class="content">
+    <!-- 游客模式提示 -->
+    <view class="guest-tip-banner" wx:if="{{!hasUserInfo}}">
+      <view class="guest-tip-content">
+        <text class="guest-tip-icon">👤</text>
+        <view class="guest-tip-text">
+          <text class="guest-tip-title">游客模式</text>
+          <text class="guest-tip-desc">数据仅保存在本地，登录后可同步到云端</text>
+        </view>
+        <button class="guest-login-btn" bindtap="goToLogin">登录</button>
+      </view>
+    </view>
+    
+    <!-- 拍照区域 -->
+    <view class="camera-section">
+      <view class="camera-container">
+        <view class="camera-circle" bindtap="goToFoodAI" wx:if="{{!foodImage}}">
+          <view class="camera-inner-circle">
+            <!-- 现代风格照相机图标 -->
+            <van-icon name="photograph" size="80rpx" color="#FFFFFF" />
+          </view>
+          <text class="camera-text">点击拍照识别食物</text>
+          <text class="ai-tag">AI智能</text>
+        </view>
+        
+        <view class="camera-preview" wx:else bindtap="takePhoto">
+          <van-image 
+            width="100%" 
+            height="100%" 
+            src="{{foodImage}}" 
+            fit="cover" 
+          />
+          <view class="loading-overlay flex-center" wx:if="{{isRecognizing}}">
+            <!-- 现代风格加载动画 -->
+            <van-loading color="#ffffff" size="36rpx" />
+            <view class="loading-text">正在识别食物...</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 识别结果区域 -->
+    <view class="result-section" wx:if="{{hasResult}}">
+      <view class="section-title">识别结果</view>
+      
+      <view class="food-list card">
+        <view 
+          class="food-item" 
+          wx:for="{{foodItems}}" 
+          wx:key="index"
+          bindtap="viewFoodDetail"
+          data-index="{{index}}"
+        >
+          <view class="food-item-content flex-between">
+            <view class="food-info">
+              <view class="food-name">{{item.name}}</view>
+              <view class="food-weight">{{item.weight}}</view>
+              <view class="food-confidence">
+                <van-tag round type="success" size="medium">准确率:{{item.confidence * 100}}%</van-tag>
+              </view>
+            </view>
+            <view class="food-calories">{{item.calories}} 千卡</view>
+          </view>
+        </view>
+      </view>
+      
+      <view class="action-btn-group">
+        <van-button 
+          type="primary" 
+          size="large" 
+          custom-class="save-button"
+          block 
+          bind:click="saveRecord"
+          disabled="{{!hasResult}}"
+          loading="{{isSaving}}"
+        >
+          <!-- 现代风格保存图标 -->
+          <van-icon name="success" size="32rpx" style="margin-right: 10rpx;" />
+          保存记录
+        </van-button>
+      </view>
+    </view>
+    
+    <!-- 分享区域 -->
+    <view class="share-section" wx:if="{{todayRecords.length > 0}}">
+      <view class="share-title">分享我的健康记录</view>
+      <view class="share-buttons">
+        <van-button 
+          type="primary" 
+          size="large"
+          custom-class="share-friend-btn"
+          bind:click="shareToFriend"
+        >
+          <van-icon name="chat-o" size="32rpx" style="margin-right: 10rpx;" />
+          发送给朋友
+        </van-button>
+        
+        <van-button 
+          type="info" 
+          size="large"
+          custom-class="share-timeline-btn"
+          bind:click="shareToTimeline"
+        >
+          <van-icon name="friends-o" size="32rpx" style="margin-right: 10rpx;" />
+          分享到朋友圈
+        </van-button>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 现代加载动画 -->
+<view class="loading-container" wx:if="{{isLoading}}">
+  <view class="loader-box">
+    <van-loading color="#FF5A5F" size="48rpx" />
+  </view>
+  <text class="loading-text" style="margin-top: 30rpx; color: #333;">识别中...</text>
+</view>
+
+<!-- 识别结果弹窗 -->
+<view class="recognition-popup" wx:if="{{showRecognitionResult && recognizedFoods.length > 0}}">
+  <view class="popup-content">
+    <view class="popup-header">
+      <text class="popup-title">识别结果</text>
+      <view class="popup-close" bindtap="hideRecognitionResult">×</view>
+    </view>
+    <view class="foods-list">
+      <view class="food-result-item" wx:for="{{recognizedFoods}}" wx:key="index">
+        <view class="food-result-info">
+          <view class="food-result-name">{{item.name}}</view>
+          <view class="food-result-calories">{{item.calories}}千卡</view>
+        </view>
+        <view class="food-result-probability">置信度: {{item.probability}}%</view>
+      </view>
+    </view>
+    <view class="popup-buttons">
+      <button class="popup-btn save-btn" bindtap="saveRecord">保存记录</button>
+      <button class="popup-btn cancel-btn" bindtap="hideRecognitionResult">重新识别</button>
+    </view>
+  </view>
+</view>

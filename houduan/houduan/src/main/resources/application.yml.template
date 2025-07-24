@@ -1,0 +1,88 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: calorie-tracker
+  profiles:
+    active: dev  # 默认使用开发环境
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/your_database_name?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: your_username
+    password: your_password
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      idle-timeout: 30000
+      connection-timeout: 30000
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
+    password: your_redis_password
+    timeout: 10000
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 20MB
+
+# 文件上传配置
+file:
+  upload:
+    path: ./uploads
+  access:
+    path: /files
+    
+# MinIO对象存储配置
+minio:
+  endpoint: http://localhost:9000
+  access-key: your_minio_access_key
+  secret-key: your_minio_secret_key
+  bucket-name: calorie-images
+  domain: http://localhost:9000
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  typeAliasesPackage: com.calorie.entity
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# 微信小程序配置
+wx:
+  miniapp:
+    appid: your_wechat_appid
+    secret: your_wechat_secret
+    token: 
+    aesKey: 
+    msgDataFormat: JSON
+
+# 图像识别API配置
+image:
+  recognition:
+    provider: baidu
+    baidu:
+      app-id: your_baidu_app_id
+      api-key: your_baidu_api_key
+      secret-key: your_baidu_secret_key
+
+# JWT配置
+jwt:
+  secret: your_jwt_secret_key_at_least_32_characters
+  expire: 604800 # 7天，单位秒
+  header: Authorization

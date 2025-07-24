@@ -1,0 +1,50 @@
+<!--pages/profile/test-avatar.wxml-->
+<view class="test-container">
+  <view class="test-header">
+    <text class="test-title">头像选择测试</text>
+  </view>
+  
+  <view class="test-content">
+    <!-- 方案一：新版头像选择器 -->
+    <view class="test-section">
+      <view class="section-title">方案一：新版头像选择器 (推荐)</view>
+      <button class="avatar-btn" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar1">
+        <image class="test-avatar" src="{{avatar1 || '/images/default-avatar.png'}}" mode="aspectFill"></image>
+        <text class="btn-text">点击选择头像</text>
+      </button>
+      <view class="result-info">
+        <text>结果：{{avatar1 ? '已获取头像' : '未选择头像'}}</text>
+        <text wx:if="{{avatar1}}" class="url-text">{{avatar1}}</text>
+      </view>
+    </view>
+    
+    <!-- 方案二：getUserProfile -->
+    <view class="test-section">
+      <view class="section-title">方案二：getUserProfile</view>
+      <button class="test-btn" bindtap="getUserProfile">获取用户信息</button>
+      <view class="result-info">
+        <text>结果：{{avatar2 ? '已获取头像' : '未获取头像'}}</text>
+        <text wx:if="{{avatar2}}" class="url-text">{{avatar2}}</text>
+        <image wx:if="{{avatar2}}" class="test-avatar" src="{{avatar2}}" mode="aspectFill"></image>
+      </view>
+    </view>
+    
+    <!-- 方案三：chooseMedia -->
+    <view class="test-section">
+      <view class="section-title">方案三：选择本地图片</view>
+      <button class="test-btn" bindtap="chooseLocalImage">选择本地图片</button>
+      <view class="result-info">
+        <text>结果：{{avatar3 ? '已选择图片' : '未选择图片'}}</text>
+        <image wx:if="{{avatar3}}" class="test-avatar" src="{{avatar3}}" mode="aspectFill"></image>
+      </view>
+    </view>
+    
+    <!-- 测试结果 -->
+    <view class="test-section">
+      <view class="section-title">测试日志</view>
+      <view class="log-container">
+        <text wx:for="{{logs}}" wx:key="index" class="log-item">{{item}}</text>
+      </view>
+    </view>
+  </view>
+</view> 
