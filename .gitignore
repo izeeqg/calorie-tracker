@@ -1,78 +1,70 @@
-# 操作系统相关
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
+# Compiled class file
+*.class
 
-# 编辑器相关
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# 日志文件
+# Log file
 *.log
-logs/
 
-# 临时文件
-*.tmp
-*.temp
+# BlueJ files
+*.ctxt
 
-# 后端相关 (Java/Spring Boot)
-houduan/*/target/
-houduan/*/*.jar
-houduan/*/*.war
-houduan/*/*.ear
-houduan/*/*.class
-houduan/*/mvnw
-houduan/*/mvnw.cmd
-houduan/*/.mvn/
-houduan/*/HELP.md
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs
+hs_err_pid*
+replay_pid*
 
 # Maven
-houduan/*/.m2/
+target/
+!.mvn/wrapper/maven-wrapper.jar
+**/target/
 
-# 配置文件中的敏感信息
-houduan/*/src/main/resources/application-prod.yml
-houduan/*/src/main/resources/application-dev.yml
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# 上传文件目录
-houduan/*/uploads/
-houduan/*/temp/
+# 微信小程序
+.tea/
+miniprogram_npm/
+node_modules/
 
-# 前端相关 (微信小程序)
-miniprogram-1/miniprogram_npm/
-miniprogram-1/node_modules/
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
 
-# 微信开发者工具相关
-miniprogram-1/.tea/
-miniprogram-1/project.config.json
-miniprogram-1/project.private.config.json
+# OS
+.DS_Store
+Thumbs.db
 
-# 构建产物
-miniprogram-1/dist/
-miniprogram-1/build/
+# 配置文件（保护敏感信息）
+application.yml
+application-dev.yml
+application-prod.yml
+project.config.json
+project.private.config.json
+utils/constants.js
 
-# 依赖相关
-package-lock.json
-yarn.lock
+# 备份文件
+*.backup
+*.bak
 
-# 环境配置
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+# 日志文件
+logs/
+*.log
 
-# 数据库相关
-*.sql.backup
-*.db
-*.sqlite
-*.sqlite3
-
-# Docker相关
-docker-compose.override.yml 
+# 临时文件
+temp/
+tmp/
